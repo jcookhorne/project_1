@@ -86,12 +86,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public EmployeeTo employeeInfo(EmployeeTo employeeTo) {
 		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnected();
+		
+		Statement st;
+		try {
+			st = conn.createStatement();
+		 
+		String query = "SELECT * FROM employee_details WHERE username= '" + employeeTo.getEmployeeUserName()
+				+ "'AND password='" + employeeTo.getEmployeePassword() + "'";
+		ResultSet rs = st.executeQuery(query);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
 	@Override
 	public EmployeeTo employeeUpdate(EmployeeTo employeeTo) {
 		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnected();
+		
+		Statement st;
+		try {
+			st = conn.createStatement();
+		 
+		String query = "SELECT * FROM employee_details WHERE username= '" + employeeTo.getEmployeeUserName()
+				+ "'AND password='" + employeeTo.getEmployeePassword() + "'";
+		ResultSet rs = st.executeQuery(query);
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
