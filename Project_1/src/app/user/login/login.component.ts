@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  // newUser: User ={
+  //   userName: "",
+  //   password :"",
+  //   role :""
+  // }
+  errorMessage!: string;
+  constructor(private userService: UserService) { }
+
 
   ngOnInit(): void {
   }
 
+  validateUser(){
+
+  }
 }
