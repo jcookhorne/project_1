@@ -24,6 +24,20 @@ public class DBUtil {
 	// Step 2 connect to Database
 
 	static Connection getConnected() {
+		/*
+		 * String username = "postgres";
+		  String password = "Yeshua7753";
+		  String connectionUrl = "jdbc:postgresql://127.0.0.1:5432/bank";
+		 * 
+		 */
+		
+		
+		/*
+		 *String username = "postgres";
+		  String password = "Yeshua7753";
+		  String connectionUrl = "jdbc:postgresql://127.0.0.1:5432/bank";
+		 * 
+		 */
 		String username = "postgres";
 		String password = "Yeshua7753";
 		String connectionUrl = "jdbc:postgresql://127.0.0.1:5432/bank";
