@@ -8,6 +8,10 @@ import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
 import { HomeComponent } from './employee/home/home.component';
 import { MHomeComponent } from './manager/m-home/m-home.component';
+import { MyInfoComponent } from './employee/my-info/my-info.component';
+import { RequestReimbursementComponent } from './employee/request-reimbursement/request-reimbursement.component';
+import { ViewPendingReimbursementsComponent } from './employee/view-pending-reimbursements/view-pending-reimbursements.component';
+import { ViewResolvedReimbursementsComponent } from './employee/view-resolved-reimbursements/view-resolved-reimbursements.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { MHomeComponent } from './manager/m-home/m-home.component';
     LoginComponent,
     LogoutComponent,
     HomeComponent,
-    MHomeComponent
+    MHomeComponent,
+    MyInfoComponent,
+    RequestReimbursementComponent,
+    ViewPendingReimbursementsComponent,
+    ViewResolvedReimbursementsComponent
   ],
   imports: [
     BrowserModule,
