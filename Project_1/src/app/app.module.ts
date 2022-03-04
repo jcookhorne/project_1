@@ -24,11 +24,12 @@ import { ViewResolvedReimbursementsComponent } from './employee/view-resolved-re
     MyInfoComponent,
     RequestReimbursementComponent,
     ViewPendingReimbursementsComponent,
-    ViewResolvedReimbursementsComponent
+    ViewResolvedReimbursementsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

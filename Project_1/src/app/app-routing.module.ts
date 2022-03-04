@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './employee/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MHomeComponent } from './manager/m-home/m-home.component';
+import { LoginComponent } from './user/login/login.component';
+import { LogoutComponent } from './user/logout/logout.component';
 
 //Employee Ports /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import { MyInfoComponent } from './employee/my-info/my-info.component';
@@ -19,7 +21,8 @@ const routes: Routes = [
   { path: "e-info", component:  MyInfoComponent },
   { path: "e-request", component: RequestReimbursementComponent },
   { path: "e-view", component: ViewPendingReimbursementsComponent },
-  { path: "e-resolved", component: ViewResolvedReimbursementsComponent }
+  { path: "e-resolved", component: ViewResolvedReimbursementsComponent },
+  { path: "login", component: LoginComponent }
   //////////////////////////////////////////////////////////////////////////////////////////
 ];
 
