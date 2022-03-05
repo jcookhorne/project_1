@@ -1,1 +1,34 @@
 <p>request-reimbursement works!</p>
+<div class="container-fluid">
+    <div class="card-body bg-light card-body-sm">
+
+       
+        <div class="card m-5" *ngIf="toggleAdd">
+            <div class="card-header bg-success text-white">Reimbursement</div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3 mt-3">
+                      <label for="title" class="form-label">Reimbursement Amount:</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="amount" 
+                        placeholder="Enter Reimbursement Amount"
+                        >
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="title" class="form-label">Reimbursement Reason:</label>
+                        <textarea  
+                          class="form-control" 
+                          id="reason" 
+                          placeholder="Enter reason for reimbursement "
+                          ></textarea>
+                      </div>
+                      <button type="button" class="btn btn-success" (click)="toggleAddForm()">Request New Reimbursement</button>
+
+                </form>
+</div>
+</div>
+
+
+

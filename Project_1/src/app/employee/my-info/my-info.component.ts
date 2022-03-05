@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-info',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  updateInfo(){
+    this.router.navigate(['update-info']);
+  }
 }
