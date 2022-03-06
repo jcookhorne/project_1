@@ -18,9 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeTo employeeLogin(EmployeeTo employeeTo) {
+	public EmployeeTo employeeLogin(String username, String password) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeLogin(employeeTo);
+		return employeeDao.employeeLogin(username, password);
 	}
 
 	@Override

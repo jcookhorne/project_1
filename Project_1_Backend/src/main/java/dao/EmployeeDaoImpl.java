@@ -11,7 +11,7 @@ import transferobjects.EmployeeTo;
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
-	public EmployeeTo employeeLogin(EmployeeTo employeeTo) {
+	public EmployeeTo employeeLogin(String username, String password) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnected();
 		
@@ -19,8 +19,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			try {
 				st = conn.createStatement();
 			 
-			String query = "SELECT * FROM employee_details WHERE username= '" + employeeTo.getEmployeeUserName()
-					+ "'AND password='" + employeeTo.getEmployeePassword() + "'";
+			String query = "SELECT * FROM employee_details WHERE username= '" + username
+					+ "'AND password='" + password + "'";
 			ResultSet rs = st.executeQuery(query);
 			}catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -92,7 +92,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			st = conn.createStatement();
 		 System.out.println("within try block");
-		String query = "SELECT * FROM employee_details WHERE employee_id=" + employeeId;
+		String query = "SELECT * FROM employee_details WHERE employee_id=";
 		ResultSet rs = st.executeQuery(query);
 		
 		if(rs.next()) {

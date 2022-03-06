@@ -17,18 +17,19 @@ public class Main_Reimbursement {
 		System.out.println("Server listening at port 7070 . .");
 		// Employee
 		// endpoint for employeelogin
-		myServer.get("/api/login", (ctx) -> {
+		myServer.get("/api/login/{username}/{password}", (ctx) -> {
 			// there is an incomming book json in the requestbody, fetching the request body
 			// and storing it in newBook
-			EmployeeTo login = ctx.bodyAsClass(EmployeeTo.class);
-			EmployeeTo returnLogin = employeeService.employeeLogin(login);
+			String employeeUsername = ctx.pathParam("username");
+			String employeePassword = ctx.pathParam("password");
+			
+			EmployeeTo returnLogin = employeeService.employeeLogin(employeeUsername, employeePassword);
 			ctx.json(returnLogin);
 		});
 		// endpoint for employee Info
 		myServer.get("/api/employee-Info/{bid}", (ctx) -> {
 
 			String employeeId = ctx.pathParam("bid");
-			System.out.println(employeeId);
 			EmployeeTo returnInfo = employeeService.employeeInfo(Integer.parseInt(employeeId));
 			ctx.json(returnInfo);
 
