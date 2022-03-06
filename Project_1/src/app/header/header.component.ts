@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../user/auth.service';
-import {User} from '../user/user.model';
+import {User} from '../user/User.Model';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,8 +19,8 @@ toggle =true;
     return this.authService.loggedIn;
   }
 
-  getRole(): User{
-    let data: any = this.authService.retrieveUser();
+  getRole(): string{
+    let data: User = this.authService.retrieveUser();
     return data.role;
   }
 
