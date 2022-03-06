@@ -25,6 +25,7 @@ import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { InfoHttpComponent } from './employee/my-info/info-http/info-http.component';
+import { ReimbursementsComponent } from './manager/reimbursements/reimbursements.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { InfoHttpComponent } from './employee/my-info/info-http/info-http.compon
     ViewResolvedReimbursementsComponent,
     UpdateMyInfoComponent,
     InfoHttpComponent,
+    ReimbursementsComponent
   ],
   imports: [
     BrowserModule,

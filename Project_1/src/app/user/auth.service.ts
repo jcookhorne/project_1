@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from './user.model';
+import {User} from './User.Model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,8 @@ loggedIn: boolean = false;
    let data: any= sessionStorage.getItem("userInfo");
     return JSON.parse(data);
   }
+ 
+
 
   destroyUser(): void{
     sessionStorage.removeItem("userInfo");
