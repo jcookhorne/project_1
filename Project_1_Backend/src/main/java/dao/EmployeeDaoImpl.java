@@ -84,30 +84,31 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeeTo employeeInfo(EmployeeTo employeeTo) {
+	public EmployeeTo employeeInfo(int employeeId) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnected();
-		
+		EmployeeTo employeeTo1 = null;
 		Statement st;
 		try {
 			st = conn.createStatement();
-		 
-		String query = "SELECT * FROM employee_details";
+		 System.out.println("within try block");
+		String query = "SELECT * FROM employee_details WHERE employee_id=" + employeeId;
 		ResultSet rs = st.executeQuery(query);
+		
 		if(rs.next()) {
-			EmployeeTo info = new  EmployeeTo(rs.getInt(1),
-					rs.getString(2),rs.getString(3),rs.getString(4),
-					rs.getString(5),rs.getString(6),rs.getString(7), rs.getString(8));
+		employeeTo1 = new EmployeeTo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+		
 		}
 		
 		
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Connected");
+			
 		}
 		
-		return null;
+	
+		return employeeTo1;
 	}
 
 	@Override

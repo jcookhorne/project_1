@@ -8,7 +8,8 @@ export class EmployeeService {
 
   constructor(private employee:Employee) { }
 
-  employeeInfo(){
+  employeeInfo(employeeId:number){
+    console.log(employeeId)
 
   }
 }

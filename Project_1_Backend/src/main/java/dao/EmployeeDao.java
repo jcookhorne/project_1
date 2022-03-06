@@ -14,7 +14,7 @@ public interface EmployeeDao {
 	
 	List<EmployeeTo> employeeViewMyResolved();
 	
-	EmployeeTo employeeInfo(EmployeeTo employeeTo);
+	EmployeeTo employeeInfo(int employeeId);
 	
 	EmployeeTo employeeUpdate(EmployeeTo employeeTo);
 

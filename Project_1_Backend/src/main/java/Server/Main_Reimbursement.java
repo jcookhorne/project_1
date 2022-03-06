@@ -25,11 +25,11 @@ public class Main_Reimbursement {
 			ctx.json(returnLogin);
 		});
 		// endpoint for employee Info
-		myServer.get("/api/employee-Info", (ctx) -> {
-			EmployeeTo info = ctx.bodyAsClass(EmployeeTo.class);
-			EmployeeTo returnInfo = employeeService.employeeInfo(info);
-			System.out.println(returnInfo);
-			System.out.println(info);
+		myServer.get("/api/employee-Info/{bid}", (ctx) -> {
+
+			String employeeId = ctx.pathParam("bid");
+			System.out.println(employeeId);
+			EmployeeTo returnInfo = employeeService.employeeInfo(Integer.parseInt(employeeId));
 			ctx.json(returnInfo);
 
 		});

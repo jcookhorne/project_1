@@ -2,6 +2,14 @@ package transferobjects;
 
 public class EmployeeTo {
 	
+	@Override
+	public String toString() {
+		return "EmployeeTo [employeeId=" + employeeId + ", employeeFirstName=" + employeeFirstName
+				+ ", employeeLastName=" + employeeLastName + ", employeeAddress=" + employeeAddress
+				+ ", employeePhoneNumber=" + employeePhoneNumber + ", employeeEmail=" + employeeEmail
+				+ ", employeeUserName=" + employeeUserName + ", employeePassword=" + employeePassword + ", check="
+				+ check + "]";
+	}
 	private int employeeId;
 	private String employeeFirstName;
 	private String employeeLastName;

@@ -42,9 +42,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeTo employeeInfo(EmployeeTo employeeTo) {
+	public EmployeeTo employeeInfo(int employeeId) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeInfo(employeeTo);
+		return employeeDao.employeeInfo(employeeId);
 	}
 
 	@Override

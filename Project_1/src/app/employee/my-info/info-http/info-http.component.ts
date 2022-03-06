@@ -17,4 +17,4 @@ export class InfoHttpComponent implements OnInit {
   }
 }
 
-}
+
