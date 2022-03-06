@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +23,7 @@ import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { InfoHttpComponent } from './employee/my-info/info-http/info-http.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     ViewPendingReimbursementsComponent,
     ViewResolvedReimbursementsComponent,
     UpdateMyInfoComponent,
+    InfoHttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

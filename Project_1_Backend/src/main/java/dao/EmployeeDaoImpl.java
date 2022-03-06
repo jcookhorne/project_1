@@ -69,7 +69,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			Statement st;
 			try {
 				st = conn.createStatement();
-			String query = "SELECT * FROM customer_pending";
+			String query = "SELECT * FROM _pending";
 			ResultSet rs = st.executeQuery(query);
 //			
 //			while (rs.next()) {
@@ -92,12 +92,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			st = conn.createStatement();
 		 
-		String query = "SELECT * FROM employee_details WHERE username= '" + employeeTo.getEmployeeUserName()
-				+ "'AND password='" + employeeTo.getEmployeePassword() + "'";
+		String query = "SELECT * FROM employee_details";
 		ResultSet rs = st.executeQuery(query);
+		if(rs.next()) {
+			EmployeeTo info = new  EmployeeTo(rs.getInt(1),
+					rs.getString(2),rs.getString(3),rs.getString(4),
+					rs.getString(5),rs.getString(6),rs.getString(7), rs.getString(8));
+		}
+		
+		
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Connected");
 		}
 		
 		return null;

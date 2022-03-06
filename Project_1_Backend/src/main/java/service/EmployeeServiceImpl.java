@@ -3,11 +3,20 @@ package service;
 import java.util.List;
 
 import dao.EmployeeDao;
+import dao.EmployeeDaoImpl;
 import transferobjects.EmployeeTo;
 	
 public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeDao employeeDao;
 	
+	
+	
+	
+	public EmployeeServiceImpl() {
+		employeeDao = new EmployeeDaoImpl();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public EmployeeTo employeeLogin(EmployeeTo employeeTo) {
 		// TODO Auto-generated method stub

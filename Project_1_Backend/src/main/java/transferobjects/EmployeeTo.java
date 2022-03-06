@@ -5,7 +5,10 @@ public class EmployeeTo {
 	private int employeeId;
 	private String employeeFirstName;
 	private String employeeLastName;
+	private String employeeAddress;
 	private String employeePhoneNumber;
+	
+	private String employeeEmail;
 	private String employeeUserName;
 	private String employeePassword;
 	private boolean check;
@@ -15,16 +18,18 @@ public class EmployeeTo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public EmployeeTo(int employeeId, String employeeFirstName, String employeeLastName, String employeePhoneNumber,
-			String employeeUserName, String employeePassword, boolean check) {
+	public EmployeeTo(int employeeId, String employeeFirstName, String employeeLastName, 
+			String employeeAddress, String employeePhoneNumber, String employeeEmail,
+			String employeeUserName, String employeePassword) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeFirstName = employeeFirstName;
 		this.employeeLastName = employeeLastName;
+		this.employeeAddress = employeeAddress;
 		this.employeePhoneNumber = employeePhoneNumber;
+		this.employeeEmail = employeeEmail;
 		this.employeeUserName = employeeUserName;
 		this.employeePassword = employeePassword;
-		this.check = check;
 	}
 	public int getEmployeeId() {
 		return employeeId;
@@ -44,11 +49,23 @@ public class EmployeeTo {
 	public void setEmployeeLastName(String employeeLastName) {
 		this.employeeLastName = employeeLastName;
 	}
+	public String getEmployeeAddress() {
+		return employeeAddress;
+	}
+	public void setEmployeeAddress(String employeeAddress) {
+		this.employeeAddress = employeeAddress;
+	}
 	public String getEmployeePhoneNumber() {
 		return employeePhoneNumber;
 	}
 	public void setEmployeePhoneNumber(String employeePhoneNumber) {
 		this.employeePhoneNumber = employeePhoneNumber;
+	}
+	public String getEmployeeEmail() {
+		return employeeEmail;
+	}
+	public void setEmployeeEmail(String employeeEmail) {
+		this.employeeEmail = employeeEmail;
 	}
 	public String getEmployeeUserName() {
 		return employeeUserName;

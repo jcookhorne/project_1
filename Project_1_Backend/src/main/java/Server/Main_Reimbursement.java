@@ -12,7 +12,8 @@ public class Main_Reimbursement {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EmployeeService employeeService = new EmployeeServiceImpl();
-		Javalin myServer = Javalin.create().start(7070);
+		//Javalin myServer = Javalin.create().start(7070);
+		Javalin myServer = Javalin.create((config)-> config.enableCorsForAllOrigins()).start(7070);
 		System.out.println("Server listening at port 7070 . .");
 		// Employee
 		// endpoint for employeelogin
@@ -24,9 +25,11 @@ public class Main_Reimbursement {
 			ctx.json(returnLogin);
 		});
 		// endpoint for employee Info
-		myServer.get("/api/employee-Info/{bid}", (ctx) -> {
+		myServer.get("/api/employee-Info", (ctx) -> {
 			EmployeeTo info = ctx.bodyAsClass(EmployeeTo.class);
 			EmployeeTo returnInfo = employeeService.employeeInfo(info);
+			System.out.println(returnInfo);
+			System.out.println(info);
 			ctx.json(returnInfo);
 
 		});
