@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from './User.Model';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,20 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
+
+
+  loggedIn: boolean = false;
+  storeUser(user:User): void{
+    sessionStorage.setItem("userInfo", JSON.stringify(user));
+
+  }
+   retrieveUser(): User {
+   let data: any = sessionStorage.getItem("userInfo");
+   return JSON.parse(data);
+  
+    
+   } 
+  destroyUser(): void{
+    sessionStorage.removeItem("userInfo");
+  }  
 }

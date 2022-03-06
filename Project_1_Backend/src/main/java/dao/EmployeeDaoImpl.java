@@ -45,7 +45,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			Statement st;
 			try {
 				st = conn.createStatement();
-			String query = "SELECT * FROM customer_pending";
+			String query = "SELECT * FROM pending_details WHERE employee_id =";
 			ResultSet rs = st.executeQuery(query);
 //			
 //			while (rs.next()) {

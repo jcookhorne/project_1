@@ -20,6 +20,14 @@ export class LoginComponent implements OnInit {
   }
 
   validateUser(){
-
-  }
+    
+    let returnUser: User =  this.userService.validateUser(this.newUser);
+ if (returnUser.userName == ""){
+   //invalid credentials
+   this.errorMessage = "Invalid Credentials!!"
+ }else{
+ 
+ }
+ console.log("Login Was Successful")
+   }
 }
