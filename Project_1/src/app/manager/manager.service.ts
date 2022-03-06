@@ -10,6 +10,7 @@ export class ManagerService {
         employeeId: 4,
         reimbursementAmount: 500,
         reimbursementReason: "flu",
+        status: "pending",
         reimbursementDate: "11/4/21"
       },
        {
@@ -17,6 +18,7 @@ export class ManagerService {
         employeeId: 5,
         reimbursementAmount: 80,
         reimbursementReason: "flat tire",
+        status: "pending",
         reimbursementDate: "10/4/22"
       },
       {
@@ -24,6 +26,7 @@ export class ManagerService {
         employeeId: 6,
         reimbursementAmount: 5000,
         reimbursementReason: "I want a new car",
+        status: "pending",
         reimbursementDate: "12/1/22"
       }
     ]

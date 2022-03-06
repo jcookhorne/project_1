@@ -20,6 +20,7 @@ export class ReimbursementsComponent implements OnInit {
     employeeId: 4,
     reimbursementAmount: 500,
     reimbursementReason: "Bad weather",
+    status: "pending",
     reimbursementDate: "11/14/21"
   };
    // allResolved: Request[]= [

@@ -1,6 +1,5 @@
-export interface User {
-userName: string,
-password: string,
-role: string
-
+export interface User{
+    userName: string,
+    password: string,
+    role: string
 }

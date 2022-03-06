@@ -3,5 +3,6 @@ export interface Requests{
     employeeId: number,
     reimbursementAmount: number,
     reimbursementReason: string,
+    status: string,
     reimbursementDate: string
 }
