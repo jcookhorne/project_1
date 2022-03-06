@@ -19,8 +19,8 @@ toggle =true;
     return this.authService.loggedIn;
   }
 
-  getRole(): string{
-    let data: User = this.authService.retrieveUser();
+  getRole(): User{
+    let data: any = this.authService.retrieveUser();
     return data.role;
   }
 
