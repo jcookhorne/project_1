@@ -3,15 +3,24 @@ package service;
 import java.util.List;
 
 import dao.EmployeeDao;
+import dao.EmployeeDaoImpl;
 import transferobjects.EmployeeTo;
 	
 public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeDao employeeDao;
 	
+	
+	
+	
+	public EmployeeServiceImpl() {
+		employeeDao = new EmployeeDaoImpl();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
-	public EmployeeTo employeeLogin(EmployeeTo employeeTo) {
+	public EmployeeTo employeeLogin(String username, String password) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeLogin(employeeTo);
+		return employeeDao.employeeLogin(username, password);
 	}
 
 	@Override
@@ -33,9 +42,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeTo employeeInfo(EmployeeTo employeeTo) {
+	public EmployeeTo employeeInfo(int employeeId) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeInfo(employeeTo);
+		return employeeDao.employeeInfo(employeeId);
 	}
 
 	@Override

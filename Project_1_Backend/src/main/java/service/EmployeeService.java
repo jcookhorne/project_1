@@ -5,7 +5,7 @@ import java.util.List;
 import transferobjects.EmployeeTo;
 
 public interface EmployeeService {
-	EmployeeTo employeeLogin(EmployeeTo employeeTo);
+	EmployeeTo employeeLogin(String username, String password);
 	
 	EmployeeTo employeeRequest(EmployeeTo employeeTo);
 	
@@ -13,7 +13,7 @@ public interface EmployeeService {
 	
 	List<EmployeeTo> employeeViewMyResolved();
 	
-	EmployeeTo employeeInfo(EmployeeTo employeeTo);
+	EmployeeTo employeeInfo(int employeeId);
 	
 	EmployeeTo employeeUpdate(EmployeeTo employeeTo);
 

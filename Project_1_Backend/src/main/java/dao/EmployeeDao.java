@@ -6,7 +6,7 @@ import transferobjects.EmployeeTo;
 
 public interface EmployeeDao {
 	
-	EmployeeTo employeeLogin(EmployeeTo employeeTo);
+	EmployeeTo employeeLogin(String username, String password);
 	
 	EmployeeTo employeeRequest(EmployeeTo employeeTo);
 	
@@ -14,7 +14,7 @@ public interface EmployeeDao {
 	
 	List<EmployeeTo> employeeViewMyResolved();
 	
-	EmployeeTo employeeInfo(EmployeeTo employeeTo);
+	EmployeeTo employeeInfo(int employeeId);
 	
 	EmployeeTo employeeUpdate(EmployeeTo employeeTo);
 
