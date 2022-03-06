@@ -1,18 +1,48 @@
-
-<form class="container h-100 d-flex justify-content-center mx-auto">
-<!-- <div class="card-header bg-dark text-warning">Login</div> -->
+<!-- <form [(ngSubmit)] = "validateUser()" 
+class="container h-100 d-flex justify-content-center mx-auto">
+ <div class="card-header bg-dark text-warning">Login</div> 
 <div class="card-body bg-light card-body-lg">
     
         <div class="form-group row">
-            <label for="userName" class="col-sm-1 col-form-label text-dark ">Username: </label>
+            <label for="username" class="col-sm-1 col-form-label text-dark ">Username: </label>
             <div class="col-sm-7">
-                <input class="form-control" type="text" id="username" placeholder="Enter Username">
+                <input 
+                class="form-control" 
+                type="text" 
+                id="username" 
+                placeholder="Enter Username"
+                name="username"
+                [(ngModel)] = "newUser.username"
+                >
             </div>
         </div>
         <div class="form-group row mt-3">
             <label for="userName" class="col-sm-1 col-form-label text-dark ">Password: </label>
             <div class="col-sm-7">
-                <input class="form-control" type="text" id="password" placeholder="Enter Username">
+                <input 
+                class="form-control" 
+                type="text"
+                 id="password" 
+                 placeholder="Enter Password"
+                 name="password"
+                 [(ngModel)] = "newUser.password"
+
+                 >
+            </div>
+
+        </div>
+        <div class="form-group row mt-3">
+            <label for="userName" class="col-sm-1 col-form-label text-dark ">Role: </label>
+            <div class="col-sm-7">
+                <input 
+                class="form-control" 
+                type="text"
+                 id="role" 
+                 placeholder="Enter Role"
+                 name="role"
+                 [(ngModel)] = "newUser.role"
+
+                 >
             </div>
 
         </div>
@@ -24,4 +54,50 @@
     
 </div>
 
+</form>
+-->
+<form (ngSubmit)= "validateUser()">
+<div>
+   
+    <div class="card m-5">
+        <div class="card-header bg-warning">Login</div>
+        <div class="card-body">
+            
+                <div class="mb-3 mt-3">
+                    <label for="username" class="form-label">User:</label>
+                    <input 
+                    type="text" class="form-control" 
+                    id="username" 
+                    placeholder="Enter username" 
+                    name="username"
+                    [(ngModel)] = "newUser.userName"
+                    >
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="text" class="form-control" 
+                    id="password" 
+                    placeholder="Enter password" 
+                    name="password"
+                    [(ngModel)] = "newUser.password">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="role" class="form-label">Role:</label>
+                    <input type="text" class="form-control" 
+                    id="role" 
+                    placeholder="Enter role" 
+                    name="role"
+                    [(ngModel)] = "newUser.role">
+                </div>
+                
+           
+        </div>
+        <div class="card-footer bg-warning">
+            <button type="submit" class="btn btn-success">
+                Login
+                <div>{{ errorMessage }}</div>
+            </button>
+        </div>
+    </div>
+</div>
 </form>

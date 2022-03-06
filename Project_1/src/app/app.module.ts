@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ReimbursementsComponent } from './manager/reimbursements/reimbursements.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +39,17 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     ViewPendingReimbursementsComponent,
     ViewResolvedReimbursementsComponent,
     UpdateMyInfoComponent,
+    ReimbursementsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     CalendarModule.forRoot({
     provide: DateAdapter,
     useFactory: adapterFactory,
+    
     })
   ],
   providers: [],

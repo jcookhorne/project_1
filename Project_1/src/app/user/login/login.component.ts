@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import {User} from '../user.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,19 +9,31 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  // newUser: User ={
-  //   userName: "",
-  //   password :"",
-  //   role :""
-  // }
+   newUser: User ={
+     userName: "",
+    password :"",
+    role :""
+   }
   errorMessage!: string;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
 
   ngOnInit(): void {
   }
 
   validateUser(){
-
+    let returnUser: User = this.userService.validateUser(this.newUser);
+    if(returnUser.userName == ""){
+        this.errorMessage ="Invalid Credentials";
+    } else{
+      if(returnUser.role == "manager"){
+          //go to manager
+          this.router.navigate(['mHome'])
+      } else{
+        //navigate to employee
+        this.router.navigate(['home'])
+      }
+        console.log("login successful");
+    }
   }
 }
