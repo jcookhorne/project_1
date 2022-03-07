@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../user/auth.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 toggle =true;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,10 @@ toggle =true;
       }else{
         this.toggle =true;
       }
+  }
+
+  isLoggedIn(): boolean{
+    return this.authService.loggedIn;
   }
 
 }

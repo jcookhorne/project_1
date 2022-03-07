@@ -1,4 +1,4 @@
-package dao;
+package dao; 
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public EmployeeTo employeeLogin(String username, String password) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnected();
-		
+			EmployeeTo employeeTo = null;
 			Statement st;
 			try {
 				st = conn.createStatement();
@@ -22,13 +22,56 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			String query = "SELECT * FROM employee_details WHERE username= '" + username
 					+ "'AND password='" + password + "'";
 			ResultSet rs = st.executeQuery(query);
+			if(rs.next()) {
+				employeeTo = new EmployeeTo(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7), rs.getString(8));
+			}
 			}catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-		return null;
+		return employeeTo;
 	}
+	
+	
+
+	@Override
+	public EmployeeTo employeeInfo(int employeeId) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnected();
+		EmployeeTo employeeTo1 = null;
+		Statement st;
+		try {
+			st = conn.createStatement();
+		String query = "SELECT * FROM employee_details WHERE employee_id=" +employeeId;
+		ResultSet rs = st.executeQuery(query);
+		
+		if(rs.next()) {
+		employeeTo1 = new EmployeeTo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+		
+		}
+		
+		
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+	
+		return employeeTo1;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public EmployeeTo employeeRequest(EmployeeTo employeeTo) {
@@ -81,34 +124,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				e.printStackTrace();
 			}
 		return null;
-	}
-
-	@Override
-	public EmployeeTo employeeInfo(int employeeId) {
-		// TODO Auto-generated method stub
-		Connection conn = DBUtil.getConnected();
-		EmployeeTo employeeTo1 = null;
-		Statement st;
-		try {
-			st = conn.createStatement();
-		 System.out.println("within try block");
-		String query = "SELECT * FROM employee_details WHERE employee_id=";
-		ResultSet rs = st.executeQuery(query);
-		
-		if(rs.next()) {
-		employeeTo1 = new EmployeeTo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
-		
-		}
-		
-		
-		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		
-	
-		return employeeTo1;
 	}
 
 	@Override

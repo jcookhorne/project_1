@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Employee } from '../employee/employee.model';
 import { AuthService } from './auth.service';
 import { User } from './User.Model';
 
@@ -7,7 +10,16 @@ import { User } from './User.Model';
 })
 export class UserService {
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService, private http:HttpClient) { }
+// to work with HTTP Client, we should include HTTPClientModule in app.module.ts file
+  login(userName:String = "", password:String = ""): Observable<Employee>{
+  
+    return this.http.get<Employee>("http://localhost:7070/api/login/"+ userName + password );
+  }
+
+
+
+
   validateUser(newUser: User): User{
     if(newUser.userName=="admin" && newUser.password == "admin"){
       // user has successfully logged in as an admin

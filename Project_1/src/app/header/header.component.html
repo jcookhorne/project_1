@@ -12,20 +12,25 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
          <li class="nav-item">
-          <a class="navbar-brand" routerLink="login" >Login</a>
+          <a class="navbar-brand" routerLink="login" *ngIf="isLoggedIn()==false" >Login</a>
          </li>
          <li class="nav-item">
-            <a class="navbar-brand"  routerLink="home">Employee Home</a>
+            <a class="navbar-brand"  routerLink="home"  *ngIf="isLoggedIn()==true">Employee Home</a>
          </li>
          <li class="nav-item">
-            <a class="navbar-brand"  routerLink="mHome">Manager Home</a>
+            <a class="navbar-brand"  routerLink="mHome"  *ngIf="isLoggedIn()==true">Manager Home</a>
          </li>
          <!-- These are the employee anchors for the header -->
          <li class="nav-item">
-            <a class="navbar-brand"  routerLink="e-info">My Info</a>
+            <a class="navbar-brand"  routerLink="e-info"  *ngIf="isLoggedIn()==true">My Info</a>
          </li>
          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" 
+            role="button"
+            data-toggle="dropdown" 
+            aria-haspopup="true" 
+            aria-expanded="false"
+            *ngIf="isLoggedIn()==true">
                 Request
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

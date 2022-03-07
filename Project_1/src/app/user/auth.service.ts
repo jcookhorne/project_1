@@ -23,4 +23,5 @@ export class AuthService {
   destroyUser(): void{
     sessionStorage.removeItem("userInfo");
   }  
+  
 }

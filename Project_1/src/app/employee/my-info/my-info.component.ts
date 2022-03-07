@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EmplHttpService } from '../empl-http.service';
+import { EmployeeService } from '../employee.service';
+
 
 @Component({
   selector: 'app-my-info',
@@ -9,10 +11,10 @@ import { EmplHttpService } from '../empl-http.service';
 })
 export class MyInfoComponent implements OnInit {
 
-  constructor(private router:Router, private emplHttpService : EmplHttpService) { }
+  constructor(private router:Router, private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
-    this.emplHttpService.employeeInfo().subscribe((response)=>{
+    this.employeeService.employeeInfo().subscribe((response)=>{
       console.log(Response);
     })
   }

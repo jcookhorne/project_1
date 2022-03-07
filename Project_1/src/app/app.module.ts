@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+
+// Login and out Components
 import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 import { MHomeComponent } from './manager/m-home/m-home.component';
 
@@ -17,13 +26,8 @@ import { RequestReimbursementComponent } from './employee/request-reimbursement/
 import { ViewPendingReimbursementsComponent } from './employee/view-pending-reimbursements/view-pending-reimbursements.component';
 import { ViewResolvedReimbursementsComponent } from './employee/view-resolved-reimbursements/view-resolved-reimbursements.component';
 import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-my-info.component';
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { InfoHttpComponent } from './employee/my-info/info-http/info-http.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +40,7 @@ import { InfoHttpComponent } from './employee/my-info/info-http/info-http.compon
     RequestReimbursementComponent,
     ViewPendingReimbursementsComponent,
     ViewResolvedReimbursementsComponent,
-    UpdateMyInfoComponent,
-    InfoHttpComponent,
+    UpdateMyInfoComponent
   ],
   imports: [
     BrowserModule,
