@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +10,21 @@ import { AuthService } from './auth.service';
 
 export class AuthGuard implements CanActivate {
 
+
   constructor(private authService: AuthService, private router: Router){
+
+ 
+    
+
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-     // write the logic for the guard to work here
-     // find out if a user has logged in or not, for this we need AuthService to be injected
-     // if user has logged in , return true else return false
-     if(this.authService.loggedIn){
-       return true;
-     }
-     else{
-       this.router.navigate(['login']);
-       return false;
-     }
-      
-  }
+      if(this.authService.loggedIn){
+        return true;
+      }else
+      console.log("hello")
+      this.router.navigate(['login']);
+    return false;
+  }}

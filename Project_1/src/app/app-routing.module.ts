@@ -12,21 +12,26 @@ import { RequestReimbursementComponent } from './employee/request-reimbursement/
 import { ViewPendingReimbursementsComponent } from './employee/view-pending-reimbursements/view-pending-reimbursements.component';
 import { ViewResolvedReimbursementsComponent } from './employee/view-resolved-reimbursements/view-resolved-reimbursements.component';
 import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-my-info.component';
+import { ReimbursementsComponent } from './manager/reimbursements/reimbursements.component';
+import { AuthGuard } from './user/auth.guard';
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const routes: Routes = [
-  { path: "header", component: HeaderComponent },
-  { path: "home", component: HomeComponent },
-  { path: "mHome", component: MHomeComponent },
+  { path: "header", component: HeaderComponent , canActivate: [AuthGuard]},
+  { path: "home", component: HomeComponent ,canActivate: [AuthGuard]},
+  { path: "mHome", component: MHomeComponent,canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
+  { path: "logout", component: LogoutComponent,canActivate: [AuthGuard] },
   //These are employee Components //////////////////////////////////////////////////////////
   { path: "e-info", component:  MyInfoComponent },
-  { path: "e-request", component: RequestReimbursementComponent },
-  { path: "e-view", component: ViewPendingReimbursementsComponent },
-  { path: "e-resolved", component: ViewResolvedReimbursementsComponent },
-  { path: "update-info", component: UpdateMyInfoComponent }
-
+  { path: "e-request", component: RequestReimbursementComponent ,canActivate: [AuthGuard]},
+  { path: "e-view", component: ViewPendingReimbursementsComponent ,canActivate: [AuthGuard]},
+  { path: "e-resolved", component: ViewResolvedReimbursementsComponent ,canActivate: [AuthGuard]},
+  { path: "update-info", component: UpdateMyInfoComponent ,canActivate: [AuthGuard]},
+  
   //////////////////////////////////////////////////////////////////////////////////////////
+    //These are manager Components //////////////////////////////////////////////////////////
+    {path: "reimbursement",component: ReimbursementsComponent ,canActivate: [AuthGuard]}
 ];
 
 @NgModule({
