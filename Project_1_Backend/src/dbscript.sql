@@ -21,6 +21,8 @@ CREATE TABLE pending_details(pending_id int GENERATED ALWAYS AS IDENTITY, employ
 
 ALTER TABLE pending_details add column status varchar(10);
 
+INSERT INTO pending_details( employee_id, reimbursement_amount,reimbursement_reason, status) VALUES( 23, 700, 'sick', 'pending'); 
+
 
 INSERT INTO employee_details(first_name, last_name, role, username, password) VALUES( 'Jack' , 'Harrison', 'employee', 'Jack12', 'hello'); 
 
