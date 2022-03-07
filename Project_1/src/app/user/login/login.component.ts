@@ -20,9 +20,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.userService.login().subscribe((response)=>{
-      console.log(Response);
-    });
   }
 
   validateUser(){
