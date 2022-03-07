@@ -10,9 +10,9 @@ public interface EmployeeDao {
 	
 	EmployeeTo employeeRequest(EmployeeTo employeeTo);
 	
-	List<EmployeeTo> employeeViewMyPending();
+	List<EmployeeTo> employeeViewMyPending(int employeeId);
 	
-	List<EmployeeTo> employeeViewMyResolved();
+	List<EmployeeTo> employeeViewMyResolved(int employeeId);
 	
 	EmployeeTo employeeInfo(int employeeId);
 	

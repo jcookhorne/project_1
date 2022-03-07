@@ -2,6 +2,10 @@ package Server;
 
 import java.util.List;
 
+
+
+
+import com.fasterxml.jackson.core.JsonParser.Feature;
 import io.javalin.Javalin;
 import service.EmployeeService;
 import service.EmployeeServiceImpl;
@@ -40,7 +44,7 @@ public class Main_Reimbursement {
 
 		});
 		// enpoint for employee update
-		myServer.get("/api/employee-update", (ctx) -> {
+		myServer.put("/api/employee-update", (ctx) -> {
 			EmployeeTo update = ctx.bodyAsClass(EmployeeTo.class);
 			EmployeeTo returnUpdate = employeeService.employeeUpdate(update);
 			ctx.json(returnUpdate);
@@ -53,15 +57,16 @@ public class Main_Reimbursement {
 			ctx.json(returnRequest);
 		});
 		// enpoint for employee update
-		myServer.get("/api/view-pending", (ctx) -> {
-			
-			List<EmployeeTo> returnPending = employeeService.employeeViewMyPending();
+		myServer.get("/api/view-pending/{bid}", (ctx) -> {
+			String employeeId = ctx.pathParam("bid");
+			List<EmployeeTo> returnPending = employeeService.employeeViewMyPending(Integer.parseInt(employeeId));
 			ctx.json(returnPending);
 
 		});
 		// enpoint for employee update
-		myServer.get("/api/view-resolved", (ctx) -> {
-			List<EmployeeTo> returnResolved = employeeService.employeeViewMyResolved();
+		myServer.get("/api/view-resolved/{bid}", (ctx) -> {
+			String employeeId = ctx.pathParam("bid");
+			List<EmployeeTo> returnResolved = employeeService.employeeViewMyResolved(Integer.parseInt(employeeId));
 			ctx.json(returnResolved);
 
 		});

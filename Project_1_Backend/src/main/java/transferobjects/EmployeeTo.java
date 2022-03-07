@@ -2,14 +2,7 @@ package transferobjects;
 
 public class EmployeeTo {
 	
-	@Override
-	public String toString() {
-		return "EmployeeTo [employeeId=" + employeeId + ", employeeFirstName=" + employeeFirstName
-				+ ", employeeLastName=" + employeeLastName + ", employeeAddress=" + employeeAddress
-				+ ", employeePhoneNumber=" + employeePhoneNumber + ", employeeEmail=" + employeeEmail
-				+ ", employeeUserName=" + employeeUserName + ", employeePassword=" + employeePassword + ", check="
-				+ check + "]";
-	}
+	
 	private int employeeId;
 	private String employeeFirstName;
 	private String employeeLastName;
@@ -19,8 +12,7 @@ public class EmployeeTo {
 	private String employeeEmail;
 	private String employeeUserName;
 	private String employeePassword;
-	private boolean check;
-	
+
 	
 	public EmployeeTo() {
 		super();
@@ -87,11 +79,13 @@ public class EmployeeTo {
 	public void setEmployeePassword(String employeePassword) {
 		this.employeePassword = employeePassword;
 	}
-	public boolean isCheck() {
-		return check;
-	}
-	public void setCheck(boolean check) {
-		this.check = check;
+
+	@Override
+	public String toString() {
+		return "EmployeeTo [employeeId=" + employeeId + ", employeeFirstName=" + employeeFirstName
+				+ ", employeeLastName=" + employeeLastName + ", employeeAddress=" + employeeAddress
+				+ ", employeePhoneNumber=" + employeePhoneNumber + ", employeeEmail=" + employeeEmail
+				+ ", employeeUserName=" + employeeUserName + ", employeePassword=" + employeePassword +"]";
 	}
 
 	

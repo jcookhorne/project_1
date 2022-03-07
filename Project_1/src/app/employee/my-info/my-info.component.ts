@@ -14,6 +14,11 @@ export class MyInfoComponent implements OnInit {
   constructor(private router:Router, private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
+   this.theEmployeeInfo();
+  }
+
+
+  theEmployeeInfo(){
     this.employeeService.employeeInfo().subscribe((response)=>{
       console.log(Response);
     })

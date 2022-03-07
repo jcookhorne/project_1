@@ -30,15 +30,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<EmployeeTo> employeeViewMyPending() {
+	public List<EmployeeTo> employeeViewMyPending(int employeeId) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeViewMyPending();
+		return employeeDao.employeeViewMyPending(employeeId);
 	}
 
 	@Override
-	public List<EmployeeTo> employeeViewMyResolved() {
+	public List<EmployeeTo> employeeViewMyResolved(int employeeId) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeViewMyResolved();
+		return employeeDao.employeeViewMyResolved(employeeId);
 	}
 
 	@Override
