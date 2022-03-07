@@ -10,6 +10,7 @@ import io.javalin.Javalin;
 import service.EmployeeService;
 import service.EmployeeServiceImpl;
 import transferobjects.EmployeeTo;
+import transferobjects.ReimbursementPojo;
 
 public class Main_Reimbursement {
 
@@ -51,22 +52,22 @@ public class Main_Reimbursement {
 
 		});
 		// enpoint for employee request
-		myServer.get("/api/employee-request", (ctx) -> {
-			EmployeeTo request = ctx.bodyAsClass(EmployeeTo.class);
+		myServer.post("/api/employee-request", (ctx) -> {
+			ReimbursementPojo request = ctx.bodyAsClass(ReimbursementPojo.class);
 			EmployeeTo returnRequest = employeeService.employeeRequest(request);
 			ctx.json(returnRequest);
 		});
-		// enpoint for employee update
+		// enpoint for employee pending
 		myServer.get("/api/view-pending/{bid}", (ctx) -> {
 			String employeeId = ctx.pathParam("bid");
-			List<EmployeeTo> returnPending = employeeService.employeeViewMyPending(Integer.parseInt(employeeId));
+			List<ReimbursementPojo> returnPending = employeeService.employeeViewMyPending(Integer.parseInt(employeeId));
 			ctx.json(returnPending);
 
 		});
-		// enpoint for employee update
+		// enpoint for employee resolved 
 		myServer.get("/api/view-resolved/{bid}", (ctx) -> {
 			String employeeId = ctx.pathParam("bid");
-			List<EmployeeTo> returnResolved = employeeService.employeeViewMyResolved(Integer.parseInt(employeeId));
+			List<ReimbursementPojo> returnResolved = employeeService.employeeViewMyResolved(Integer.parseInt(employeeId));
 			ctx.json(returnResolved);
 
 		});

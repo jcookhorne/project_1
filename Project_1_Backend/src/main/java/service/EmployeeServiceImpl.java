@@ -5,6 +5,7 @@ import java.util.List;
 import dao.EmployeeDao;
 import dao.EmployeeDaoImpl;
 import transferobjects.EmployeeTo;
+import transferobjects.ReimbursementPojo;
 	
 public class EmployeeServiceImpl implements EmployeeService {
 	EmployeeDao employeeDao;
@@ -24,19 +25,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeTo employeeRequest(EmployeeTo employeeTo) {
+	public EmployeeTo employeeRequest(ReimbursementPojo reimbursement) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeRequest(employeeTo);
+		return employeeDao.employeeRequest(reimbursement);
 	}
 
 	@Override
-	public List<EmployeeTo> employeeViewMyPending(int employeeId) {
+	public List<ReimbursementPojo> employeeViewMyPending(int employeeId) {
 		// TODO Auto-generated method stub
 		return employeeDao.employeeViewMyPending(employeeId);
 	}
 
 	@Override
-	public List<EmployeeTo> employeeViewMyResolved(int employeeId) {
+	public List<ReimbursementPojo> employeeViewMyResolved(int employeeId) {
 		// TODO Auto-generated method stub
 		return employeeDao.employeeViewMyResolved(employeeId);
 	}

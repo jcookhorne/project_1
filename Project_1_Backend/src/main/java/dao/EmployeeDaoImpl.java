@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import transferobjects.EmployeeTo;
+import transferobjects.ReimbursementPojo;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
@@ -97,19 +98,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	
 
 	@Override
-	public EmployeeTo employeeRequest(EmployeeTo employeeTo) {
+	public EmployeeTo employeeRequest(ReimbursementPojo reimbursement) {
 		// TODO Auto-generated method stub
 		
 Connection conn = DBUtil.getConnected();
-		
+		reimbursement.setStatus("pending");
 		Statement st;
 		try {
 			st = conn.createStatement();
 		 
-		String query = "INSERT INTO reimbursement_detailS ( '" + employeeTo.getEmployeeEmail()+"', contact='"+ employeeTo.getEmployeePhoneNumber()
-		+"', address='" + employeeTo.getEmployeeAddress() 
-		+ "', username="+ employeeTo.getEmployeeUserName()
-		+"', password='"+employeeTo.getEmployeePassword()+"'";
+		String query = "INSERT INTO reimbursement_detailS ( reason= '" + reimbursement.getReimbursementReason()
+		+"', reimbursement_amount='" + reimbursement.getReimbursementAmount()
+		+ "', status="+ reimbursement.getStatus()
+		+"'";
 		
 		ResultSet rs = st.executeQuery(query);
 		}catch (SQLException e) {
@@ -120,9 +121,9 @@ Connection conn = DBUtil.getConnected();
 		return null;
 	}
 	@Override
-	public List<EmployeeTo> employeeViewMyPending(int employeeId) {
+	public List<ReimbursementPojo> employeeViewMyPending(int employeeId) {
 		// TODO Auto-generated method stub
-		List<EmployeeTo> allPending = new ArrayList<EmployeeTo>();
+		List<ReimbursementPojo> allPending = new ArrayList<ReimbursementPojo>();
 		Connection conn = DBUtil.getConnected();
 
 			Statement st;
@@ -132,8 +133,8 @@ Connection conn = DBUtil.getConnected();
 			ResultSet rs = st.executeQuery(query);
 			
 			while (rs.next()) {
-				EmployeeTo pending = new EmployeeTo(rs.getInt(1),rs.getString(2),
-						rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				ReimbursementPojo pending = new ReimbursementPojo(rs.getInt(1),rs.getInt(2),
+						rs.getFloat(3),rs.getString(4),rs.getString(5),rs.getString(6));
 				allPending.add(pending);
 			}
 			} catch (SQLException e) {
@@ -144,10 +145,10 @@ Connection conn = DBUtil.getConnected();
 	}
 
 	@Override
-	public List<EmployeeTo> employeeViewMyResolved(int employeeId) {
+	public List<ReimbursementPojo> employeeViewMyResolved(int employeeId) {
 		// TODO Auto-generated method stub
 		
-		List<EmployeeTo> allResolved = new ArrayList<EmployeeTo>();
+		List<ReimbursementPojo> allResolved = new ArrayList<ReimbursementPojo>();
 		Connection conn = DBUtil.getConnected();
 
 			Statement st;
@@ -157,8 +158,8 @@ Connection conn = DBUtil.getConnected();
 			ResultSet rs = st.executeQuery(query);
 			
 			while (rs.next()) {
-				EmployeeTo Resolved = new EmployeeTo(rs.getInt(1),rs.getString(2),
-						rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				ReimbursementPojo Resolved = new ReimbursementPojo(rs.getInt(1),rs.getInt(2),
+						rs.getFloat(3),rs.getString(4),rs.getString(5),rs.getString(6));
 				allResolved.add(Resolved);
 			}
 			} catch (SQLException e) {

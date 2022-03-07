@@ -1,1 +1,27 @@
-<p>view-pending-reimbursements works!</p>
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Reimbursement ID</th>
+                <th>Employee ID</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="reim of allReimbursements">
+                <td>{{ reim.reimbursementId }}</td>
+                <td>{{ reim.employeeId }}</td>
+                <td>{{ reim.reimbursementAmount }}</td>
+                <td>{{ reim.reimbursementReason  }}</td>
+                <td>{{ reim.reimbursementDate }}</td>
+                <td>{{ reim.status }}</td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
