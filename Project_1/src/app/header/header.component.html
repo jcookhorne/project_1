@@ -14,10 +14,10 @@
          <li class="nav-item" *ngIf="isLoggedIn()==false">
           <a class="navbar-brand"routerLink="login" >Login</a>
          </li>
-         <li class="nav-item" *ngIf="isLoggedIn()==true">
+         <li class="nav-item" *ngIf="isLoggedIn()==true && getRole()== 'emp'">
             <a class="navbar-brand"  routerLink="home">Employee Home</a>
          </li>
-         <li class="nav-item" *ngIf="isLoggedIn()==true">
+         <li class="nav-item" *ngIf="isLoggedIn()==true && getRole()== 'manager'">
             <a class="navbar-brand"  routerLink="mHome">Manager Home</a>
          </li>
          <!-- These are the employee anchors for the header -->
@@ -25,7 +25,7 @@
             <a class="navbar-brand"  routerLink="e-info">My Info</a>
          </li>
          <li class="nav-item dropdown" *ngIf="isLoggedIn()==true && getRole()== 'emp'">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Request
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

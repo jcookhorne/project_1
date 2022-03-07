@@ -18,12 +18,13 @@ import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
   { path: "header", component: HeaderComponent , canActivate: [AuthGuard]},
-  { path: "home", component: HomeComponent ,canActivate: [AuthGuard]},
-  { path: "mHome", component: MHomeComponent,canActivate: [AuthGuard] },
+  
+  
   { path: "login", component: LoginComponent },
   { path: "logout", component: LogoutComponent,canActivate: [AuthGuard] },
   //These are employee Components //////////////////////////////////////////////////////////
-  { path: "e-info", component:  MyInfoComponent },
+  { path: "home", component: HomeComponent ,canActivate: [AuthGuard]},
+  { path: "e-info", component:  MyInfoComponent, canActivate: [AuthGuard] },
   { path: "e-request", component: RequestReimbursementComponent ,canActivate: [AuthGuard]},
   { path: "e-view", component: ViewPendingReimbursementsComponent ,canActivate: [AuthGuard]},
   { path: "e-resolved", component: ViewResolvedReimbursementsComponent ,canActivate: [AuthGuard]},
@@ -31,7 +32,8 @@ const routes: Routes = [
   
   //////////////////////////////////////////////////////////////////////////////////////////
     //These are manager Components //////////////////////////////////////////////////////////
-    {path: "reimbursement",component: ReimbursementsComponent ,canActivate: [AuthGuard]}
+    {path: "reimbursement",component: ReimbursementsComponent ,canActivate: [AuthGuard]},
+    { path: "mHome", component: MHomeComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@ export class EmployeeService {
   
   constructor(private http:HttpClient) { }
 
-  employeeInfo(employeeId: number = 1): Observable<Employee>   {
+  employeeInfo(employeeId: number = 2): Observable<Employee>   {
     return this.http.get<Employee>("http://localhost:7070/api/employee-Info/"+employeeId);
   }
 
