@@ -1,0 +1,45 @@
+<form (ngSubmit)= "validateUser()">
+    <div>
+    
+        <div class="card m-5">
+            <div class="card-header bg-warning">Login</div>
+            <div class="card-body">
+    
+                    <div class="mb-3 mt-3">
+                        <label for="username" class="form-label">User:</label>
+                        <input 
+                        type="text" class="form-control" 
+                        id="username" 
+                        placeholder="Enter username" 
+                        name="username"
+                        [(ngModel)] = "newUser.userName"
+                        >
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="text" class="form-control" 
+                        id="password" 
+                        placeholder="Enter password" 
+                        name="password"
+                        [(ngModel)] = "newUser.password">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="role" class="form-label">Role:</label>
+                        <input type="text" class="form-control" 
+                        id="role" 
+                        placeholder="Enter role" 
+                        name="role"
+                        [(ngModel)] = "newUser.role">
+                    </div>
+    
+    
+            </div>
+            <div class="card-footer bg-warning">
+                <button type="submit" class="btn btn-success">
+                    Login
+                    <div>{{ errorMessage }}</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    </form>
