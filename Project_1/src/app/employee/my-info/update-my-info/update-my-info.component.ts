@@ -9,15 +9,16 @@ import { Employee } from '../../employee.model';
 export class UpdateMyInfoComponent implements OnInit {
 
   constructor() { }
-  newEmployee: Employee = {
-    employeeId:2,
-    firstName:"",
-    lastName:"",
-    address:"",
-    phoneNumber:"",
-    username:"",
-    password:""
-}
+   newEmployee: Employee = {
+    employeeId : 0,
+    employeeFirstName : "",
+    employeeLastName : "",
+    employeeAddress : "",
+    employeePhoneNumber : "",
+    employeeUserName : "",
+    employeePassword :"" 
+  }
+
   ngOnInit(): void {
   }
 

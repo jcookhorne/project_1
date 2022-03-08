@@ -3,13 +3,13 @@ import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
+import { HeaderComponent } from './header/header.component';
 
 // Login and out Components
 import { LoginComponent } from './user/login/login.component';

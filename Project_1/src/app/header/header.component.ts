@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../employee/employee.model';
 import {AuthService} from '../user/auth.service';
 import {User} from '../user/user.model';
 @Component({
@@ -20,8 +21,12 @@ toggle =true;
   }
 
   getRole(): string{
-    let data: User = this.authService.retrieveUser();
-    return data.role;
+    if(this.authService.employeeRole){
+      return "emp";
+    }else if(this.authService.managerRole){
+      return "manager";
+    }
+    return ""
   }
 
   isCollapsed(){

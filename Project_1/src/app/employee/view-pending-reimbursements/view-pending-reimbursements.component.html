@@ -12,15 +12,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="reim of allReimbursements">
+            <tr>
                 <td>{{ reim.reimbursementId }}</td>
                 <td>{{ reim.employeeId }}</td>
                 <td>{{ reim.reimbursementAmount }}</td>
                 <td>{{ reim.reimbursementReason  }}</td>
                 <td>{{ reim.reimbursementDate }}</td>
                 <td>{{ reim.status }}</td>
-                
-                
+                  
             </tr>
         </tbody>
     </table>

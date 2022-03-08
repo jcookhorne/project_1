@@ -12,19 +12,18 @@ import transferobjects.ReimbursementPojo;
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
-	public EmployeeTo employeeLogin(String username, String password) {
+	public EmployeeTo employeeLogin(EmployeeTo employee) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnected();
-			EmployeeTo employeeTo = null;
+			//EmployeeTo employeeTo = null;
 			Statement st;
 			try {
 				st = conn.createStatement();
 			 
-			String query = "SELECT * FROM employee_details WHERE username= '" + username
-					+ "'AND password='" + password + "'";
+			String query = "SELECT * FROM employee_details WHERE username= '" + employee.getEmployeeUserName()+ "'AND password='" + employee.getEmployeePassword() + "'";
 			ResultSet rs = st.executeQuery(query);
 			if(rs.next()) {
-				employeeTo = new EmployeeTo(rs.getInt(1), rs.getString(2),
+				employee = new EmployeeTo(rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
 						rs.getString(7), rs.getString(8));
 			}
@@ -33,7 +32,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				e.printStackTrace();
 			}
 			
-		return employeeTo;
+		return employee;
 	}
 	
 	
@@ -76,8 +75,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		 
 		String query = "UPDATE employee_details SET email= '" + employeeTo.getEmployeeEmail()+"', contact='"+ employeeTo.getEmployeePhoneNumber()
 		+"', address='" + employeeTo.getEmployeeAddress() 
-		+ "', username="+ employeeTo.getEmployeeUserName()
-		+"', password='"+employeeTo.getEmployeePassword()+"'";
+		+ "', username='"+ employeeTo.getEmployeeUserName()
+		+"', password='"+employeeTo.getEmployeePassword()+"' WHERE employee_id = " + employeeTo.getEmployeeId();
 		
 		ResultSet rs = st.executeQuery(query);
 		}catch (SQLException e) {
@@ -85,20 +84,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return employeeTo;
 	}
 
 
-	
-	
-	
-	
-	
-	
-	
 
 	@Override
-	public EmployeeTo employeeRequest(ReimbursementPojo reimbursement) {
+	public ReimbursementPojo employeeRequest(ReimbursementPojo reimbursement) {
 		// TODO Auto-generated method stub
 		
 Connection conn = DBUtil.getConnected();
@@ -107,18 +99,17 @@ Connection conn = DBUtil.getConnected();
 		try {
 			st = conn.createStatement();
 		 
-		String query = "INSERT INTO reimbursement_detailS ( reason= '" + reimbursement.getReimbursementReason()
-		+"', reimbursement_amount='" + reimbursement.getReimbursementAmount()
-		+ "', status="+ reimbursement.getStatus()
-		+"'";
+		String query = "INSERT INTO reimbursement_details(reimbursement_reason, reimbursement_amount, status) VALUES('"+ reimbursement.getReimbursementReason()
+		+"','" + reimbursement.getReimbursementAmount()
+		+ "','"+ reimbursement.getStatus()+"')";
 		
-		ResultSet rs = st.executeQuery(query);
+		int rs = st.executeUpdate(query);
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return null;
+		return reimbursement;
 	}
 	@Override
 	public List<ReimbursementPojo> employeeViewMyPending(int employeeId) {

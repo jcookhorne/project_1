@@ -8,22 +8,29 @@ import { Reimbursement } from '../reimbursement.model';
   styleUrls: ['./view-resolved-reimbursements.component.css']
 })
 export class ViewResolvedReimbursementsComponent implements OnInit {
-resolved: Reimbursement[] = [];
-
-  constructor(private employeeService:EmployeeService) { }
   reim: Reimbursement={
-    reimbursementId: 1,
-	  employeeId: 2,
-    reimbursementAmount: 700,
+    reimbursementId: 0,
+	  employeeId: 0,
+    reimbursementAmount: 0,
   	reimbursementReason:"",
   	reimbursementDate:"",
 	  status:""
    }
+
+  constructor(private employeeService:EmployeeService) { }
+
   ngOnInit(): void {
+    this.resolvedReimbursement();
   }
 resolvedReimbursement(){
   this.employeeService.resolvedReimbursements().subscribe((response)=>{
-    console.log(Response);
+    console.log(response);
+    this.reim.reimbursementId=response.reimbursementId;
+    this.reim.employeeId=response.employeeId;
+    this.reim.reimbursementAmount=response.reimbursementAmount;
+    this.reim.reimbursementReason=response.reimbursementReason;
+    this.reim.reimbursementDate=response.reimbursementDate;
+    this.reim.status=response.status;
   });
 }
 

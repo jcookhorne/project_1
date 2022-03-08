@@ -11,12 +11,28 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./my-info.component.css']
 })
 export class MyInfoComponent implements OnInit {
-
+   newEmployee: Employee = {
+    employeeId : 0,
+    employeeFirstName : "",
+    employeeLastName : "",
+    employeeAddress : "",
+    employeePhoneNumber : "",
+    employeeUserName : "",
+    employeePassword : ""
+  }
   constructor(private router:Router, private employeeService:EmployeeService) { }
-  employeeTest: Employee[] = [];
+  
+ 
   ngOnInit(): void {
     this.employeeService.employeeInfo().subscribe((response)=>{
-      console.log(Response);
+      console.log(response);
+      this.newEmployee.employeeId = response.employeeId;
+      this.newEmployee.employeeFirstName = response.employeeFirstName;
+      this.newEmployee.employeeLastName = response.employeeLastName;
+      this.newEmployee.employeeAddress = response.employeeAddress;
+      this.newEmployee.employeePhoneNumber = response.employeePhoneNumber;
+      this.newEmployee.employeeUserName = response.employeeUserName;
+      this.newEmployee.employeePassword = response.employeePassword;
     })
   }
 
@@ -25,15 +41,7 @@ export class MyInfoComponent implements OnInit {
   }
 
 
-  employee: Employee = {
-      employeeId:2,
-      firstName:"",
-      lastName:"",
-      address:"",
-      phoneNumber:"",
-      username:"",
-      password:""
-  }
+  
 
 
   }

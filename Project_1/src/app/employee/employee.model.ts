@@ -1,9 +1,9 @@
 export interface Employee{
     employeeId:number;
-    firstName:String;
-    lastName:String;
-    address:String;
-    phoneNumber:String;
-    username:String;
-    password:String;
+    employeeFirstName:String;
+    employeeLastName:String;
+    employeeAddress:String;
+    employeePhoneNumber:String;
+    employeeUserName:String;
+    employeePassword:String;
 }

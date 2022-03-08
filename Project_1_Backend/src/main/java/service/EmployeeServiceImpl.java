@@ -19,13 +19,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public EmployeeTo employeeLogin(String username, String password) {
+	public EmployeeTo employeeLogin(EmployeeTo employee) {
 		// TODO Auto-generated method stub
-		return employeeDao.employeeLogin(username, password);
+		return employeeDao.employeeLogin(employee);
 	}
 
 	@Override
-	public EmployeeTo employeeRequest(ReimbursementPojo reimbursement) {
+	public ReimbursementPojo employeeRequest(ReimbursementPojo reimbursement) {
 		// TODO Auto-generated method stub
 		return employeeDao.employeeRequest(reimbursement);
 	}

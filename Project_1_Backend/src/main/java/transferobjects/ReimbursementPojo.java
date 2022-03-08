@@ -10,6 +10,15 @@ public class ReimbursementPojo {
 		private String status;
 
 
+		
+		
+		
+		public ReimbursementPojo() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+
 		public int getReimbursementId() {
 		    return reimbursementId;
 		}

@@ -8,7 +8,14 @@ import { Reimbursement } from '../reimbursement.model';
   styleUrls: ['./view-pending-reimbursements.component.css']
 })
 export class ViewPendingReimbursementsComponent implements OnInit {
-
+  reim: Reimbursement={
+    reimbursementId: 0,
+	  employeeId: 0,
+    reimbursementAmount: 0,
+  	reimbursementReason:"",
+  	reimbursementDate:"",
+	  status:""
+   }
   constructor(private employeeService:EmployeeService) { }
   allReimbursements: Reimbursement[] = [];
   ngOnInit(): void {
@@ -16,17 +23,10 @@ export class ViewPendingReimbursementsComponent implements OnInit {
   }
   pendingReimbursements(){
     this.employeeService.pendingReimbursements().subscribe((response)=>{
-      console.log(Response);
-      
+      console.log(response);
+      this.reim = response;
     });
   }
-   reim: Reimbursement={
-    reimbursementId: 1,
-	  employeeId: 2,
-    reimbursementAmount: 700,
-  	reimbursementReason:"",
-  	reimbursementDate:"",
-	  status:""
-   }
+ 
 
 }

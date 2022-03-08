@@ -7,9 +7,9 @@ import transferobjects.ReimbursementPojo;
 
 public interface EmployeeDao {
 	
-	EmployeeTo employeeLogin(String username, String password);
+	EmployeeTo employeeLogin(EmployeeTo employee);
 	
-	EmployeeTo employeeRequest(ReimbursementPojo reimbursement);
+	ReimbursementPojo employeeRequest(ReimbursementPojo reimbursement);
 	
 	List<ReimbursementPojo> employeeViewMyPending(int employeeId);
 	

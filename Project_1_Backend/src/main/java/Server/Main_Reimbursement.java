@@ -20,20 +20,17 @@ public class Main_Reimbursement {
 		//Javalin myServer = Javalin.create().start(7070);
 		Javalin myServer = Javalin.create((config)-> config.enableCorsForAllOrigins()).start(7070);
 		System.out.println("Server listening at port 7070 . .");
-		
-		
-		
-		
-		
+
 		// Employee
 		// endpoint for employeelogin
-		myServer.get("/api/login/{username}/{password}", (ctx) -> {
+		myServer.post("/api/employee-login", (ctx) -> {
 			// there is an incomming book json in the requestbody, fetching the request body
 			// and storing it in newBook
-			String employeeUsername = ctx.pathParam("username");
-			String employeePassword = ctx.pathParam("password");
+//			String employeeUsername = ctx.pathParam("username");
+//			String employeePassword = ctx.pathParam("password");
+//			
 			
-			EmployeeTo returnLogin = employeeService.employeeLogin(employeeUsername, employeePassword);
+			EmployeeTo returnLogin = employeeService.employeeLogin(ctx.bodyAsClass(EmployeeTo.class));
 			ctx.json(returnLogin);
 		});
 		// endpoint for employee Info
@@ -54,7 +51,7 @@ public class Main_Reimbursement {
 		// enpoint for employee request
 		myServer.post("/api/employee-request", (ctx) -> {
 			ReimbursementPojo request = ctx.bodyAsClass(ReimbursementPojo.class);
-			EmployeeTo returnRequest = employeeService.employeeRequest(request);
+			ReimbursementPojo returnRequest = employeeService.employeeRequest(request);
 			ctx.json(returnRequest);
 		});
 		// enpoint for employee pending
@@ -69,7 +66,6 @@ public class Main_Reimbursement {
 			String employeeId = ctx.pathParam("bid");
 			List<ReimbursementPojo> returnResolved = employeeService.employeeViewMyResolved(Integer.parseInt(employeeId));
 			ctx.json(returnResolved);
-
 		});
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
