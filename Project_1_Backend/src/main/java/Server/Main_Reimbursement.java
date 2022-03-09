@@ -2,9 +2,6 @@ package Server;
 
 import java.util.List;
 
-
-
-
 import com.fasterxml.jackson.core.JsonParser.Feature;
 import io.javalin.Javalin;
 import service.EmployeeService;
@@ -17,8 +14,8 @@ public class Main_Reimbursement {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EmployeeService employeeService = new EmployeeServiceImpl();
-		//Javalin myServer = Javalin.create().start(7070);
-		Javalin myServer = Javalin.create((config)-> config.enableCorsForAllOrigins()).start(7070);
+		// Javalin myServer = Javalin.create().start(7070);
+		Javalin myServer = Javalin.create((config) -> config.enableCorsForAllOrigins()).start(7070);
 		System.out.println("Server listening at port 7070 . .");
 
 		// Employee
@@ -26,10 +23,6 @@ public class Main_Reimbursement {
 		myServer.post("/api/employee-login", (ctx) -> {
 			// there is an incomming book json in the requestbody, fetching the request body
 			// and storing it in newBook
-//			String employeeUsername = ctx.pathParam("username");
-//			String employeePassword = ctx.pathParam("password");
-//			
-			
 			EmployeeTo returnLogin = employeeService.employeeLogin(ctx.bodyAsClass(EmployeeTo.class));
 			ctx.json(returnLogin);
 		});
@@ -50,8 +43,7 @@ public class Main_Reimbursement {
 		});
 		// enpoint for employee request
 		myServer.post("/api/employee-request", (ctx) -> {
-			ReimbursementPojo request = ctx.bodyAsClass(ReimbursementPojo.class);
-			ReimbursementPojo returnRequest = employeeService.employeeRequest(request);
+			ReimbursementPojo returnRequest = employeeService.employeeRequest(ctx.bodyAsClass(ReimbursementPojo.class));
 			ctx.json(returnRequest);
 		});
 		// enpoint for employee pending
@@ -61,10 +53,11 @@ public class Main_Reimbursement {
 			ctx.json(returnPending);
 
 		});
-		// enpoint for employee resolved 
+		// enpoint for employee resolved
 		myServer.get("/api/view-resolved/{bid}", (ctx) -> {
 			String employeeId = ctx.pathParam("bid");
-			List<ReimbursementPojo> returnResolved = employeeService.employeeViewMyResolved(Integer.parseInt(employeeId));
+			List<ReimbursementPojo> returnResolved = employeeService
+					.employeeViewMyResolved(Integer.parseInt(employeeId));
 			ctx.json(returnResolved);
 		});
 

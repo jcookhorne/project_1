@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
     <table class="table table-striped">
-        <thead>
+        <thead class="table-success">
             <tr>
                 <th>Reimbursement ID</th>
                 <th>Employee ID</th>
@@ -12,12 +12,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let reim of allReimbursements">
                 <td>{{ reim.reimbursementId }}</td>
+
                 <td>{{ reim.employeeId }}</td>
+
                 <td>{{ reim.reimbursementAmount }}</td>
+
                 <td>{{ reim.reimbursementReason  }}</td>
+
                 <td>{{ reim.reimbursementDate }}</td>
+                
                 <td>{{ reim.status }}</td>
                   
             </tr>

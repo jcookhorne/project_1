@@ -99,9 +99,9 @@ Connection conn = DBUtil.getConnected();
 		try {
 			st = conn.createStatement();
 		 
-		String query = "INSERT INTO reimbursement_details(reimbursement_reason, reimbursement_amount, status) VALUES('"+ reimbursement.getReimbursementReason()
-		+"','" + reimbursement.getReimbursementAmount()
-		+ "','"+ reimbursement.getStatus()+"')";
+		String query = "INSERT INTO pending_details(employee_id, reimbursement_reason, reimbursement_amount, status) VALUES(" +reimbursement.getEmployeeId()  +  ",'"+ reimbursement.getReimbursementReason()
+		+"'," + reimbursement.getReimbursementAmount()
+		+ ",'"+ reimbursement.getStatus()+"')";
 		
 		int rs = st.executeUpdate(query);
 		}catch (SQLException e) {

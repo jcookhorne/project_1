@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EmployeeService } from '../employee.service';
+import { Reimbursement } from '../reimbursement.model';
 
 @Component({
   selector: 'app-request-reimbursement',
@@ -7,15 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestReimbursementComponent implements OnInit {
 
-  constructor() { }
-  toggleAdd = true;
+  constructor(private employeeService:EmployeeService, private router:Router) { }
+  retrieveEmployeeId(): any{
+    let id = localStorage.getItem("id");
+    
+    return id;
+   }
+  reim: Reimbursement={
+    reimbursementId: 0,
+	  employeeId: this.retrieveEmployeeId(),
+    reimbursementAmount: 0,
+  	reimbursementReason:"",
+  	reimbursementDate:"",
+	  status:""
+   }
+   
   ngOnInit(): void {
+
+
   }
-  toggleAddForm(){
-    if(this.toggleAdd){
-      this.toggleAdd = false;
-    }else{
-      this.toggleAdd = true;
-    }
-  }
+
+reimbursement(){
+  this.employeeService.requestReimbursment(this.reim).subscribe((response)=>{
+    console.log(response)
+
+      this.router.navigate(['home']);
+ 
+    })
+}
+
+  
 }

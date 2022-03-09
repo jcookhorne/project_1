@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         employeeId : 0,
         employeeFirstName : "",
         employeeLastName : "",
+        employeeEmail : "",
         employeeAddress : "",
         employeePhoneNumber : "",
         employeeUserName : this.newUser.userName,
@@ -43,6 +44,9 @@ export class LoginComponent implements OnInit {
       this.userService.validateEmployee(newEmployee).subscribe((response) => {
         console.log("response after login:");
         console.log(response);
+        localStorage.setItem('user', JSON.stringify(response));
+        localStorage.setItem("id", JSON.stringify(response.employeeId))
+       // localStorage.setItem('id',response.employeeId )
         if (response.employeeFirstName == "") {
           //login failed
           console.log("login failed");

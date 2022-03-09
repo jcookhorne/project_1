@@ -16,6 +16,7 @@ export class MyInfoComponent implements OnInit {
     employeeId : 0,
     employeeFirstName : "",
     employeeLastName : "",
+    employeeEmail: "",
     employeeAddress : "",
     employeePhoneNumber : "",
     employeeUserName : "",
@@ -31,6 +32,7 @@ export class MyInfoComponent implements OnInit {
       this.newEmployee.employeeId = response.employeeId;
       this.newEmployee.employeeFirstName = response.employeeFirstName;
       this.newEmployee.employeeLastName = response.employeeLastName;
+      this.newEmployee.employeeEmail = response.employeeEmail;
       this.newEmployee.employeeAddress = response.employeeAddress;
       this.newEmployee.employeePhoneNumber = response.employeePhoneNumber;
       this.newEmployee.employeeUserName = response.employeeUserName;
