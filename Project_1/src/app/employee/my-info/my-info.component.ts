@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
 import {Employee} from '../employee.model'
 import { EmployeeService } from '../employee.service';
 
@@ -25,6 +26,7 @@ export class MyInfoComponent implements OnInit {
  
   ngOnInit(): void {
     this.employeeService.employeeInfo().subscribe((response)=>{
+      console.log("My Info response")
       console.log(response);
       this.newEmployee.employeeId = response.employeeId;
       this.newEmployee.employeeFirstName = response.employeeFirstName;

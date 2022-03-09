@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee/employee.model';
+
 import {AuthService} from '../user/auth.service';
-import {User} from '../user/user.model';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

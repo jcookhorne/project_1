@@ -17,18 +17,6 @@ export class UserService {
    role: ""
   }
 
-
-
-  Login(userName: String, password:String): Observable<User>   {
-    return this.http.get<User>("http://localhost:7070/api/login/"+userName+"/"+password);
-  }
-
-  ManagerLogin(userName: String, password:String): Observable<User>   {
-    return this.http.get<User>("http://localhost:7070/api/login/"+userName+"/"+password);
-  }
-
-
-
   
  validateManager(user: User ): Observable<User>{ 
       this.authService.loggedIn = true;
@@ -36,7 +24,7 @@ export class UserService {
   
    }
    validateEmployee(user: Employee ){
-    console.log("user dataa:");
+    console.log("user data:");
     console.log(user);
     return this.http.post<Employee>("http://localhost:7070/api/employee-login", user);
     

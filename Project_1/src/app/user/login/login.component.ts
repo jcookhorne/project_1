@@ -13,7 +13,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  role = ['Employee', 'Manager']
+
 
   newUser: User = {
     userName: "",
@@ -25,13 +25,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  login() {
-    this.userService.Login(this.newUser.userName, this.newUser.password).subscribe((response) => {
-      console.log(response);
-      this.newUser = response;
-    });
-  }
+
   validateUser() {
+    console.log("this is new USer")
     console.log(this.newUser);
     // check if user is trying to log as manager or employee
     if (this.newUser.role == "Employee") {
@@ -66,19 +62,5 @@ export class LoginComponent implements OnInit {
 
       });
     }
-
-
-    // if(returnUser.userName == ""){
-    //     this.errorMessage ="Invalid Credentials";
-    // } else{
-    //   if(returnUser.role == "Manager"){
-    //       //go to manager
-    //       this.router.navigate(['mHome'])
-    //   } else{
-    //     //navigate to employee
-    //     this.router.navigate(['home'])
-    //   }
-    //     console.log("login successful");
-    // }
   }
 }
