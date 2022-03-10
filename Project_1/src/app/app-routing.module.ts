@@ -15,13 +15,11 @@ import { UpdateMyInfoComponent } from './employee/my-info/update-my-info/update-
 import { ReimbursementsComponent } from './manager/reimbursements/reimbursements.component';
 import { AuthGuard } from './user/auth.guard';
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 const routes: Routes = [
   { path: "header", component: HeaderComponent , canActivate: [AuthGuard]},
-  
-  
   { path: "login", component: LoginComponent },
   { path: "logout", component: LogoutComponent,canActivate: [AuthGuard] },
+
   //These are employee Components //////////////////////////////////////////////////////////
   { path: "home", component: HomeComponent ,canActivate: [AuthGuard]},
   { path: "e-info", component:  MyInfoComponent, canActivate: [AuthGuard] },
