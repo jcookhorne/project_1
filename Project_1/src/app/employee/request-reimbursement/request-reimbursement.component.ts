@@ -32,10 +32,7 @@ export class RequestReimbursementComponent implements OnInit {
 
   reimbursement() {
     this.employeeService.requestReimbursment(this.reim).subscribe((response) => {
-      console.log(response)
-
       this.router.navigate(['home']);
-
     })
   }
 

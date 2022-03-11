@@ -32,8 +32,6 @@ export class UpdateMyInfoComponent implements OnInit {
   }
   ngOnInit(): void {
     this.employeeService.employeeInfo().subscribe((response)=>{
-      console.log("My update info")
-      console.log(response)
       this.newEmployee.employeeId = response.employeeId;
       this.newEmployee.employeeFirstName = response.employeeFirstName;
       this.newEmployee.employeeLastName = response.employeeLastName;

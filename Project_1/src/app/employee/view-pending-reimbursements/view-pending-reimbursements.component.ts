@@ -22,7 +22,6 @@ export class ViewPendingReimbursementsComponent implements OnInit {
   ngOnInit(): void {
    
     this.employeeService.pendingReimbursements().subscribe((response)=>{
-      console.log(response);
       this.allReimbursements = response;
     });
   }

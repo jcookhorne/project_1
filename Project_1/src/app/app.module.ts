@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
@@ -11,11 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './user/login/login.component';
 import { LogoutComponent } from './user/logout/logout.component';
 /////////////////////////////////////////////////////////////////////////////////////
-
-
 import { MHomeComponent } from './manager/m-home/m-home.component';
-
-
 // Employee Imports 
 import { HomeComponent } from './employee/home/home.component';
 import { MyInfoComponent } from './employee/my-info/my-info.component';
@@ -47,10 +42,10 @@ import { ReimbursementsComponent } from './manager/reimbursements/reimbursements
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    
+
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
- 
+
 })
 export class AppModule { }

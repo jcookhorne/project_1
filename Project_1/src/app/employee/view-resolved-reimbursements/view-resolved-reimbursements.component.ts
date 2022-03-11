@@ -21,8 +21,6 @@ export class ViewResolvedReimbursementsComponent implements OnInit {
   allReimbursements: Reimbursement[] = [];
   ngOnInit(): void {
   this.employeeService.resolvedReimbursements().subscribe((response)=>{
-    console.log("resolved reimbursements");
-    console.log(response);
     this.allReimbursements = response;
   });
 }

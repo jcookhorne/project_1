@@ -41,20 +41,15 @@ export class LoginComponent implements OnInit {
         employeePassword : this.newUser.password
       }
       this.userService.validateEmployee(newEmployee).subscribe((response) => {
-        console.log("response after login:");
-        console.log(response);
         localStorage.setItem('user', JSON.stringify(response));
         localStorage.setItem("id", JSON.stringify(response.employeeId))
-       // localStorage.setItem('id',response.employeeId )
+
         if (response.employeeFirstName == "") {
           //login failed
           this.errorMessage = "Invalid Credentials!!";
-          console.log("login failed");
-          // stay in the same component and display the message
 
         } else {
           //login success
-          console.log("login success");
           this.authService.loggedIn = true;
           this.authService.employeeRole = true;
           this.router.navigate(['home'])
