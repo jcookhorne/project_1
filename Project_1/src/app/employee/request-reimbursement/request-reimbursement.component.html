@@ -7,7 +7,7 @@
             <div class="card-header bg-success text-white">Reimbursement</div>
             <div class="card-body">
                 <form #myFormTemplate="ngForm" (ngSubmit)="reimbursement()">
-                    <div class="mb-3 mt-3">
+                    <div class="reimAmount mb-3 mt-3">
                       <label for="Amount" class="form-label">Reimbursement Amount:</label>
                       <input 
                         type="text" 
@@ -18,7 +18,7 @@
                         [(ngModel)]="reim.reimbursementAmount"
                         >
                     </div>
-                    <div class="mb-3 mt-3">
+                    <div class="reimReason mb-3 mt-3">
                         <label for="Reason" class="form-label">Reimbursement Reason:</label>
                         <textarea  
                           class="form-control" 

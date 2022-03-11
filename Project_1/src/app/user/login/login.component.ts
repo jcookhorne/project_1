@@ -20,12 +20,11 @@ export class LoginComponent implements OnInit {
     password: "",
     role: ""
   }
-  errorMessage!: string;
+  errorMessage: String = "";
   constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
 
   }
-
   validateUser() {
     console.log("this is new USer")
     console.log(this.newUser);
@@ -49,6 +48,7 @@ export class LoginComponent implements OnInit {
        // localStorage.setItem('id',response.employeeId )
         if (response.employeeFirstName == "") {
           //login failed
+          this.errorMessage = "Invalid Credentials!!";
           console.log("login failed");
           // stay in the same component and display the message
 

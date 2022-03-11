@@ -24,12 +24,6 @@ export class ViewResolvedReimbursementsComponent implements OnInit {
     console.log("resolved reimbursements");
     console.log(response);
     this.allReimbursements = response;
-    // this.reim.reimbursementId = response.reimbursementId;
-    // this.reim.employeeId = response.employeeId;
-    // this.reim.reimbursementAmount = response.reimbursementAmount;
-    // this.reim.reimbursementReason = response.reimbursementReason;
-    // this.reim.reimbursementDate = response.reimbursementDate;
-    // this.reim.status = response.status;
   });
 }
 
