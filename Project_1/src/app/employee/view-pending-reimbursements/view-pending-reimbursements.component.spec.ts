@@ -8,9 +8,9 @@ describe('ViewPendingReimbursementsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewPendingReimbursementsComponent ]
+      declarations: [ViewPendingReimbursementsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -11,10 +11,10 @@ describe('UpdateMyInfoComponent', () => {
   let httpMock: HttpTestingController;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateMyInfoComponent ]
+      declarations: [UpdateMyInfoComponent]
     })
-    
-    .compileComponents();
+
+      .compileComponents();
     httpClient = TestBed.inject(HttpClient);
     httpMock = TestBed.inject(HttpTestingController);
   });

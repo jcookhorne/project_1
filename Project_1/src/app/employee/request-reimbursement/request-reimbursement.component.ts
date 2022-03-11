@@ -10,34 +10,34 @@ import { Reimbursement } from '../reimbursement.model';
 })
 export class RequestReimbursementComponent implements OnInit {
 
-  constructor(private employeeService:EmployeeService, private router:Router) { }
-  retrieveEmployeeId(): any{
+  constructor(private employeeService: EmployeeService, private router: Router) { }
+  retrieveEmployeeId(): any {
     let id = localStorage.getItem("id");
-    
+
     return id;
-   }
-  reim: Reimbursement={
+  }
+  reim: Reimbursement = {
     reimbursementId: 0,
-	  employeeId: this.retrieveEmployeeId(),
+    employeeId: this.retrieveEmployeeId(),
     reimbursementAmount: 0,
-  	reimbursementReason:"",
-  	reimbursementDate:"",
-	  status:""
-   }
-   
+    reimbursementReason: "",
+    reimbursementDate: "",
+    status: ""
+  }
+
   ngOnInit(): void {
 
 
   }
 
-reimbursement(){
-  this.employeeService.requestReimbursment(this.reim).subscribe((response)=>{
-    console.log(response)
+  reimbursement() {
+    this.employeeService.requestReimbursment(this.reim).subscribe((response) => {
+      console.log(response)
 
       this.router.navigate(['home']);
- 
-    })
-}
 
-  
+    })
+  }
+
+
 }

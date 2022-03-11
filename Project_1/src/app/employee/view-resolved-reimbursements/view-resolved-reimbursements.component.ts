@@ -26,8 +26,4 @@ export class ViewResolvedReimbursementsComponent implements OnInit {
     this.allReimbursements = response;
   });
 }
-
-
-
-
 }

@@ -1,8 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import {Employee} from '../employee.model'
+import { Employee } from '../employee.model'
 import { EmployeeService } from '../employee.service';
 
 
@@ -12,21 +11,21 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./my-info.component.css']
 })
 export class MyInfoComponent implements OnInit {
-   newEmployee: Employee = {
-    employeeId : 0,
-    employeeFirstName : "",
-    employeeLastName : "",
+  newEmployee: Employee = {
+    employeeId: 0,
+    employeeFirstName: "",
+    employeeLastName: "",
     employeeEmail: "",
-    employeeAddress : "",
-    employeePhoneNumber : "",
-    employeeUserName : "",
-    employeePassword : ""
+    employeeAddress: "",
+    employeePhoneNumber: "",
+    employeeUserName: "",
+    employeePassword: ""
   }
-  constructor(private router:Router, private employeeService:EmployeeService) { }
-  
- 
+  constructor(private router: Router, private employeeService: EmployeeService) { }
+
+
   ngOnInit(): void {
-    this.employeeService.employeeInfo().subscribe((response)=>{
+    this.employeeService.employeeInfo().subscribe((response) => {
       console.log("My Info response")
       console.log(response);
       this.newEmployee.employeeId = response.employeeId;
@@ -40,16 +39,11 @@ export class MyInfoComponent implements OnInit {
     })
   }
 
-  updateInfo(){
+  updateInfo() {
     this.router.navigate(['update-info']);
   }
+}
 
 
-  
-
-
-  }
-
- 
 
 
