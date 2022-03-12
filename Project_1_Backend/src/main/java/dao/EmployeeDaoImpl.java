@@ -84,12 +84,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			st = conn.createStatement();
 		 
-		String query = "UPDATE employee_details SET email= '" + employeeTo.getEmployeeEmail()+"', contact='"+ employeeTo.getEmployeePhoneNumber()
+		String query = "UPDATE employee_details SET   first_name= '" + employeeTo.getEmployeeFirstName()+"', last_name = '"+employeeTo.getEmployeeLastName()+"',email= '" + employeeTo.getEmployeeEmail()+"', contact='"+ employeeTo.getEmployeePhoneNumber()
 		+"', address='" + employeeTo.getEmployeeAddress() 
 		+ "', username='"+ employeeTo.getEmployeeUserName()
 		+"', password='"+employeeTo.getEmployeePassword()+"' WHERE employee_id = " + employeeTo.getEmployeeId();
 		
-		ResultSet rs = st.executeQuery(query);
+		int rs = st.executeUpdate(query);
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
