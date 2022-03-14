@@ -150,7 +150,7 @@ public class ManagerDaoJDBCImpl implements ManagerDao {
 	
 		stmt = conn.createStatement();
 	 
-	String query = "SELECT * FROM manager_details WHERE username= '" + manager.getLastName()+ "'AND password='" + manager.getPassword() + "'";
+	String query = "SELECT * FROM manager_details WHERE username= '" + manager.getUserName()+ "'AND password='" + manager.getPassword() + "'";
 	ResultSet rs = stmt.executeQuery(query);
 	if(rs.next()) {
 		manager = new ManagerPojo(rs.getInt(1), rs.getString(2),
