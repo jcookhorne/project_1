@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         employeeUserName : this.newUser.userName,
         employeePassword : this.newUser.password
       }
-      this.userService.validateEmployee(newEmployee).subscribe((response) => {
+      this.userService.validateEmployee(newEmployee).subscribe((response :any ) => {
         localStorage.setItem('user', JSON.stringify(response));
         localStorage.setItem("id", JSON.stringify(response.employeeId))
 
@@ -68,11 +68,18 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('user', JSON.stringify(response));
           localStorage.setItem("id", JSON.stringify(response.managerId))
+          
+          if (response.firstName == "") {
+            //login failed
+            this.errorMessage = "Invalid Credentials!!";
   
+          } else{
+
+          
           this.authService.loggedIn = true;
           this.authService.managerRole = true;
           this.router.navigate(['mhome'])
-        }
+        }}
 
       
       
