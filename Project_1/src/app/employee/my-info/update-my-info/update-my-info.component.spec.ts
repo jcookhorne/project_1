@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+
 
 import { UpdateMyInfoComponent } from './update-my-info.component';
 
@@ -11,6 +13,9 @@ describe('UpdateMyInfoComponent', () => {
   let httpMock: HttpTestingController;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule,
+        Router],
+        providers:[UpdateMyInfoComponent, Router],
       declarations: [UpdateMyInfoComponent]
     })
 
