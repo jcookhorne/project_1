@@ -9,14 +9,7 @@ import { AuthService} from './auth.service';
 
 
 export class AuthGuard implements CanActivate {
-
-
   constructor(private authService: AuthService, private router: Router){
-
- 
-    
-
-
   }
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -24,7 +17,6 @@ export class AuthGuard implements CanActivate {
       if(this.authService.loggedIn){
         return true;
       }else
-      console.log("hello")
       this.router.navigate(['login']);
     return false;
   }}

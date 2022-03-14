@@ -19,35 +19,37 @@ export class LoginComponent implements OnInit {
     password: "",
     role: ""
   }
-  errorMessage!: string;
+  errorMessage: String = "";
   constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
 
   }
-
   validateUser() {
 
     if (this.newUser.role == "Employee") {
       let newEmployee: Employee = {
-        employeeId: 0,
-        employeeFirstName: "",
-        employeeLastName: "",
-        employeeAddress: "",
-        employeePhoneNumber: "",
-        employeeUserName: this.newUser.userName,
-        employeePassword: this.newUser.password
+        employeeId : 0,
+        employeeFirstName : "",
+        employeeLastName : "",
+        employeeEmail : "",
+        employeeAddress : "",
+        employeePhoneNumber : "",
+        employeeUserName : this.newUser.userName,
+        employeePassword : this.newUser.password
       }
-      this.userService.validateEmployee(newEmployee).subscribe((response: any) => {
-        console.log("response after login:");
-        console.log(response);
+      this.userService.validateEmployee(newEmployee).subscribe((response) => {
         localStorage.setItem('user', JSON.stringify(response));
         localStorage.setItem("id", JSON.stringify(response.employeeId))
 
         if (response.employeeFirstName == "") {
+          //login failed
+          this.errorMessage = "Invalid Credentials!!";
 
-          this.authService.loggedIn = false;
-          this.authService.employeeRole = false;
-          this.router.navigate(['login'])
+        } else {
+          //login success
+          this.authService.loggedIn = true;
+          this.authService.employeeRole = true;
+          this.router.navigate(['home'])
         }
       })
     } else if (this.newUser.role == "Manager") {

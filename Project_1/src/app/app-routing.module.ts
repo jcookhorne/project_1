@@ -16,10 +16,13 @@ import { ResolvedComponent } from './manager/resolved/resolved.component';
 import { DeniedComponent } from './manager/denied/denied.component';
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const routes: Routes = [
   { path: "header", component: HeaderComponent , canActivate: [AuthGuard]},
   { path: "login", component: LoginComponent },
   { path: "logout", component: LogoutComponent,canActivate: [AuthGuard] },
+
+  //These are employee Components //////////////////////////////////////////////////////////
   { path: "home", component: HomeComponent ,canActivate: [AuthGuard]},
   { path: "e-info", component:  MyInfoComponent, canActivate: [AuthGuard] },
   { path: "e-request", component: RequestReimbursementComponent ,canActivate: [AuthGuard] },

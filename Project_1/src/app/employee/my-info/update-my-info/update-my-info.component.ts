@@ -1,5 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../../employee.model';
+import { EmployeeService } from '../../employee.service';
 
 @Component({
   selector: 'app-update-my-info',
@@ -8,18 +11,36 @@ import { Employee } from '../../employee.model';
 })
 export class UpdateMyInfoComponent implements OnInit {
 
-  constructor() { }
-   newEmployee: Employee = {
+  constructor(private employeeService:EmployeeService, private router:Router) { }
+  newEmployee: Employee = {
     employeeId : 0,
     employeeFirstName : "",
     employeeLastName : "",
+    employeeEmail : "",
     employeeAddress : "",
     employeePhoneNumber : "",
     employeeUserName : "",
-    employeePassword :"" 
+    employeePassword : ""
   }
+  updateInfo(){
+    this.employeeService.updateInfo(this.newEmployee).subscribe((response)=>{
+      console.log(response);
 
+      this.router.navigate(['e-info']);
+
+    });
+  }
   ngOnInit(): void {
+    this.employeeService.employeeInfo().subscribe((response)=>{
+      this.newEmployee.employeeId = response.employeeId;
+      this.newEmployee.employeeFirstName = response.employeeFirstName;
+      this.newEmployee.employeeLastName = response.employeeLastName;
+      this.newEmployee.employeeEmail = response.employeeEmail;
+      this.newEmployee.employeeAddress = response.employeeAddress;
+      this.newEmployee.employeePhoneNumber = response.employeePhoneNumber;
+      this.newEmployee.employeeUserName = response.employeeUserName;
+      this.newEmployee.employeePassword = response.employeePassword;
+    })
   }
 
 }

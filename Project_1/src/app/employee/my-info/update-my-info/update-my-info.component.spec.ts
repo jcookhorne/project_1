@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdateMyInfoComponent } from './update-my-info.component';
@@ -5,12 +7,16 @@ import { UpdateMyInfoComponent } from './update-my-info.component';
 describe('UpdateMyInfoComponent', () => {
   let component: UpdateMyInfoComponent;
   let fixture: ComponentFixture<UpdateMyInfoComponent>;
-
+  let httpClient: HttpClient;
+  let httpMock: HttpTestingController;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateMyInfoComponent ]
+      declarations: [UpdateMyInfoComponent]
     })
-    .compileComponents();
+
+      .compileComponents();
+    httpClient = TestBed.inject(HttpClient);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   beforeEach(() => {

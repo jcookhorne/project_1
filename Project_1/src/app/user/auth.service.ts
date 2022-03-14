@@ -12,16 +12,13 @@ loggedIn: boolean = false;
 employeeRole: boolean = false;
 managerRole: boolean = false;
   storeEmployeeUser(employee: Employee ): void {
-    sessionStorage.setItem("employeeInfo", JSON.stringify(employee))
-   
+    sessionStorage.setItem("employeeInfo", JSON.stringify(employee))  
   }
   retrieveEmployeeUser(): Employee{
    let data: any= sessionStorage.getItem("employeeInfo");
     return JSON.parse(data);
     
   }
-
-
   destroyEmployeeUser(): void{
     sessionStorage.removeItem("managerInfo");
   }  

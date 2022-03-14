@@ -1,5 +1,4 @@
-
-<div class="container-fluid">
+<div class="container-fluid justify-content-center mx-auto">
     <table class="table table-striped">
         <thead class="table-success">
             <tr>
@@ -12,18 +11,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let reim of allReimbursements">
                 <td>{{ reim.reimbursementId }}</td>
                 <td>{{ reim.employeeId }}</td>
                 <td>{{ reim.reimbursementAmount }}</td>
-                <td>{{ reim.reimbursementReason  }}</td>
+                <td>{{ reim.reimbursementReason }}</td>
                 <td>{{ reim.reimbursementDate }}</td>
                 <td>{{ reim.status }}</td>
-                
             </tr>
         </tbody>
     </table>
 </div>
-
-
-<!-- {{ reim | json }} -->

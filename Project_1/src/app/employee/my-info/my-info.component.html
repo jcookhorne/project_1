@@ -1,11 +1,11 @@
-<form class="container h-100 d-flex justify-content-center mx-auto">
+<form class="container-fluid justify-content-center mx-auto">
     <div class="card-header bg-primary text-white">My Information</div>
     <div class="card-body bg-light card-body-lg border border-5">
         <table>
 
 
             <tbody>
-                <tr >
+                <tr>
                     <td>
                         <label class="col-sm-1 col-form-label text-dark ">First Name: </label>
                     </td>
@@ -16,6 +16,14 @@
                         <label class="col-sm-1 col-form-label text-dark ">Last Name: </label>
                     </td>
                     <td>{{ newEmployee.employeeLastName }}</td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label class="col-sm-1 col-form-label text-dark ">Email: </label>
+                    </td>
+                    <td>{{ newEmployee.employeeEmail }}</td>
                 </tr>
                 <tr>
                     <td>
@@ -53,4 +61,3 @@
     </div>
 
 </form>
-

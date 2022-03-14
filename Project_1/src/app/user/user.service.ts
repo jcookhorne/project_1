@@ -8,10 +8,8 @@ import { Manager } from '../manager/manager.modue';
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private authService: AuthService, private http: HttpClient) { }
-
-  newUser: User = {
+  constructor(private authService: AuthService, private http:HttpClient) { }
+  newUser: User ={
     userName: "",
     password: "",
     role: ""

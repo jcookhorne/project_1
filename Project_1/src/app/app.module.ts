@@ -51,7 +51,7 @@ import { DeniedComponent } from './manager/denied/denied.component';
     }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 
 })
