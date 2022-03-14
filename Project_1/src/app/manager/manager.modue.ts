@@ -1,6 +1,6 @@
 export interface Manager {
     	
-	
+
     managerId: number,
     firstName: String,
     lastName: String,

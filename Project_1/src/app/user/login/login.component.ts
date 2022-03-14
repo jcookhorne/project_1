@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
         employeePassword : this.newUser.password
       }
       this.userService.validateEmployee(newEmployee).subscribe((response) => {
-        localStorage.setItem('user', JSON.stringify(response));
-        localStorage.setItem("id", JSON.stringify(response.employeeId))
+        sessionStorage.setItem('user', JSON.stringify(response));
+        sessionStorage.setItem("id", JSON.stringify(response.employeeId))
 
         if (response.employeeFirstName == "") {
           //login failed
@@ -64,21 +64,18 @@ export class LoginComponent implements OnInit {
         password: this.newUser.password,
       
       }
-        this.userService.validateManager(newManager).subscribe((response: any) => {
+        this.userService.validateManager(newManager).subscribe((response) => {
 
-          localStorage.setItem('user', JSON.stringify(response));
-          localStorage.setItem("id", JSON.stringify(response.managerId))
-  
+          sessionStorage.setItem('user', JSON.stringify(response));
+          sessionStorage.setItem("id", JSON.stringify(response.managerId))
+            if(response.firstName == ""){
+              this.errorMessage = "Invalid Credentials!!";
+            }else{
           this.authService.loggedIn = true;
           this.authService.managerRole = true;
           this.router.navigate(['mhome'])
-        }
-
-      
-      
+        }}
       );
-
-
     }
   }
 }
