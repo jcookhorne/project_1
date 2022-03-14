@@ -66,15 +66,23 @@ export class LoginComponent implements OnInit {
       }
         this.userService.validateManager(newManager).subscribe((response) => {
 
-          sessionStorage.setItem('user', JSON.stringify(response));
-          sessionStorage.setItem("id", JSON.stringify(response.managerId))
-            if(response.firstName == ""){
-              this.errorMessage = "Invalid Credentials!!";
-            }else{
+          localStorage.setItem('user', JSON.stringify(response));
+          localStorage.setItem("id", JSON.stringify(response.managerId))
+          
+          if (response.firstName == "") {
+            //login failed
+            this.errorMessage = "Invalid Credentials!!";
+  
+          } else{
+
+          
           this.authService.loggedIn = true;
           this.authService.managerRole = true;
           this.router.navigate(['mhome'])
         }}
+
+      
+      
       );
     }
   }
