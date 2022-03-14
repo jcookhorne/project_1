@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../employee/employee.model';
-import {User} from './user.model';
+import { Manager } from '../manager/manager.modue';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +20,25 @@ managerRole: boolean = false;
     return JSON.parse(data);
     
   }
- 
 
 
   destroyEmployeeUser(): void{
-    sessionStorage.removeItem("employeeInfo");
+    sessionStorage.removeItem("managerInfo");
+  }  
+
+  storeManagerUser(manager: Manager): void {
+    sessionStorage.setItem("managerInfo", JSON.stringify(manager))
+   
+  }
+  retrieveManagerUser(): Manager{
+   let data: any= sessionStorage.getItem("managerInfo");
+    return JSON.parse(data);
+    
+  }
+ 
+
+  destroyManagerUser(): void{
+    sessionStorage.removeItem("managerInfo");
   }  
   
   }

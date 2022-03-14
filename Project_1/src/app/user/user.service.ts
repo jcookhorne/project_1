@@ -1,36 +1,37 @@
 import { Injectable } from '@angular/core';
-import {User} from './user.model';
+import { User } from './user.model';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Employee } from '../employee/employee.model';
+import { Manager } from '../manager/manager.modue';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private authService: AuthService, private http:HttpClient) { }
- 
-  newUser: User ={
+  constructor(private authService: AuthService, private http: HttpClient) { }
+
+  newUser: User = {
     userName: "",
-   password:"",
-   role: ""
+    password: "",
+    role: ""
   }
 
-  
- validateManager(user: User ): Observable<User>{ 
-      this.authService.loggedIn = true;
-      return this.http.get<User>("http://localhost:7070/api/login/"+user.userName+"/"+user.password);
-  
-   }
-   validateEmployee(user: Employee ){
+
+  validateManager(user: Manager) {
+    console.log("user data:");
+    console.log(user);
+    return this.http.post<Manager>("http://localhost:4042/api/manager-login", user);
+
+  }
+  validateEmployee(user: Employee) {
     console.log("user data:");
     console.log(user);
     return this.http.post<Employee>("http://localhost:7070/api/employee-login", user);
-    
- } 
- 
 
-  
+  }
+
+
+
 }
 

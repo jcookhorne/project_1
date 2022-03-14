@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReimbursementsComponent } from './reimbursements.component';
+import { ReimbursementsHttpComponent } from './reimbursements-http.component';
 
-describe('ReimbursementsComponent', () => {
-  let component: ReimbursementsComponent;
-  let fixture: ComponentFixture<ReimbursementsComponent>;
+describe('ReimbursementsHttpComponent', () => {
+  let component: ReimbursementsHttpComponent;
+  let fixture: ComponentFixture<ReimbursementsHttpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReimbursementsComponent ]
+      declarations: [ ReimbursementsHttpComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReimbursementsComponent);
+    fixture = TestBed.createComponent(ReimbursementsHttpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

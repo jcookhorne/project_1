@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Denied } from '../denied.model';
 import { ManagerService } from '../manager.service';
-import { Requests } from '../requests.model';
 @Component({
-  selector: 'app-m-home',
-  templateUrl: './m-home.component.html',
-  styleUrls: ['./m-home.component.css']
+  selector: 'app-denied',
+  templateUrl: './denied.component.html',
+  styleUrls: ['./denied.component.css']
 })
-export class MHomeComponent implements OnInit {
+export class DeniedComponent implements OnInit {
 
-  search: string = "";
 
-  request: Requests = {
-    pendingId: 0,
+  nope: Denied = {
+    deniedId: 0,
     employeeId: 0,
     reimbursementAmount: 0,
     reimbursementReason: "",
     status: "",
     reimbursementDate: ""
   };
-
 
   oneRequest: any = [];
   allPending: any[] = [];
@@ -29,15 +27,15 @@ export class MHomeComponent implements OnInit {
 
 
 
-  fetchEmpReimbursement() {
-    this.managerService.fetchEmpReimbursement(this.search).subscribe((response: any) => {
+  fetchAllDenied() {
+    this.managerService.fetchAllDenied(this.nope).subscribe((response: any) => {
 
       this.oneRequest = response;
     });
   }
 
-
   ngOnInit(): void {
+    this.fetchAllDenied();
   }
 
 }
