@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     role: ""
   }
   errorMessage: String = "";
+  errorMessagePassword: String= "";
   constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
 
@@ -43,8 +44,8 @@ export class LoginComponent implements OnInit {
 
         if (response.employeeFirstName == "") {
           //login failed
-          this.errorMessage = "Invalid Credentials!!";
-
+       
+          this.errorMessage = "Invalid Credentials";
         } else {
           //login success
           this.authService.loggedIn = true;
@@ -71,9 +72,12 @@ export class LoginComponent implements OnInit {
           
           if (response.firstName == "") {
             //login failed
-            this.errorMessage = "Invalid Credentials!!";
+           
+            this.errorMessage = "Invalid Username";
   
-          } else{
+          }else if(response.address =="") {
+            this.errorMessagePassword = "Invalid Password"
+          }else{
 
           
           this.authService.loggedIn = true;
