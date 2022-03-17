@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("id", JSON.stringify(response.managerId))
           
           if (response.firstName == "") {
-            //login failed
+           
             this.errorMessage = "Invalid Credentials!!";
   
           } else{
